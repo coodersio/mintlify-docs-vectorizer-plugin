@@ -1,0 +1,822 @@
+---
+title: Understanding Presets
+description: Deep dive into Logo, Illustration, Line Art, and High-Fidelity presets. Learn when to use each mode and how they optimize vectorization.
+keywords: vectorizer presets, logo preset, illustration preset, line art preset, high fidelity vectorizer
+---
+
+## What Are Presets?
+
+Presets are **one-click optimized configurations** that automatically adjust multiple settings for specific image types. Think of them as "smart modes" that do the heavy lifting for you.
+
+<Card title="🎯 Quick Rule" icon="lightbulb" color="#16A34A">
+  **Not sure which preset to use?** Start with **Illustration** — it's optimized for 90% of use cases and provides the best balance of quality, speed, and file size.
+</Card>
+
+### What Presets Control
+
+Each preset automatically configures:
+
+<CardGroup cols={2}>
+  <Card title="Quality" icon="gem">
+    **Curve precision**
+
+    How accurately curves match the original
+  </Card>
+
+  <Card title="Detail" icon="magnifying-glass">
+    **Noise filtering**
+
+    How small shapes are preserved or removed
+  </Card>
+
+  <Card title="Colors" icon="palette">
+    **Color limit**
+
+    Maximum number of colors in output
+  </Card>
+
+  <Card title="Draw Style" icon="pen">
+    **Rendering method**
+
+    Fill shapes, stroke shapes, or edge outlines
+  </Card>
+</CardGroup>
+
+<Note>
+  **Presets are starting points!** You can always manually adjust individual settings after selecting a preset. They're optimized defaults, not rigid rules.
+</Note>
+
+---
+
+## 🏷️ Logo Preset
+
+**Optimized for**: Clean, simple graphics with limited colors
+
+
+### Best Use Cases
+
+<CardGroup cols={3}>
+  <Card icon="building">
+    **Company Logos**
+
+    Brand marks, wordmarks, monograms
+  </Card>
+
+  <Card icon="icons">
+    **App Icons**
+
+    iOS, Android, web favicons
+  </Card>
+
+  <Card icon="badge">
+    **Badges & Seals**
+
+    Certificates, stamps, emblems
+  </Card>
+
+  <Card icon="shapes">
+    **Simple Graphics**
+
+    Pictograms, simple illustrations
+  </Card>
+
+  <Card icon="flag">
+    **Flags & Symbols**
+
+    Country flags, road signs
+  </Card>
+
+  <Card icon="tag">
+    **Labels & Tags**
+
+    Product labels, stickers
+  </Card>
+</CardGroup>
+
+### Technical Settings
+
+| Parameter | Value | Purpose |
+|-----------|-------|---------|
+| **Quality** | Standard (0.1) | Balanced precision and speed |
+| **Detail** | 30 (min_area: 3.65px) | Aggressive noise removal |
+| **Colors** | 16 | Limited palette for clean logos |
+| **Draw Style** | Fill Shapes | Solid color fills |
+| **Fill Gaps** | Enabled | Prevents rendering artifacts |
+
+### ✅ Use Logo Preset When
+
+<AccordionGroup>
+  <Accordion title="Simple shapes with clean edges" icon="check-circle">
+    **Perfect for**:
+    - Logos with geometric shapes
+    - Icons with solid colors
+    - Graphics with clear boundaries
+    - Images with 1-5 main colors
+
+    **Why**: Logo preset removes noise aggressively, perfect for clean graphics
+  </Accordion>
+
+  <Accordion title="Limited color palette" icon="check-circle">
+    **Perfect for**:
+    - Flat color logos (no gradients)
+    - 2-color or 3-color designs
+    - High-contrast images
+    - Solid fills (no transparency)
+
+    **Why**: 16-color limit simplifies palette while preserving main colors
+  </Accordion>
+
+  <Accordion title="Small file size needed" icon="check-circle">
+    **Perfect for**:
+    - Web logos (fast loading)
+    - App icons (small bundle size)
+    - Email signatures
+    - Favicon conversions
+
+    **Why**: Produces smallest file sizes (typically 5-50 KB)
+  </Accordion>
+
+  <Accordion title="Cleaning up low-res logos" icon="check-circle">
+    **Perfect for**:
+    - Downloaded JPEG logos
+    - Screenshots of logos
+    - Client-provided low-quality files
+    - Removing JPG artifacts
+
+    **Why**: Detail setting of 30 removes compression artifacts automatically
+  </Accordion>
+</AccordionGroup>
+
+### ❌ Don't Use Logo Preset For
+
+<Warning>
+  **Avoid Logo preset when**:
+
+  - **Complex illustrations** with many colors or gradients
+  - **Photographs** or photo-realistic images
+  - **Hand-drawn sketches** with texture
+  - **Detailed artwork** with fine features
+  - **Images with gradients** or subtle shading
+
+  → Use **Illustration** or **High-Fidelity** instead
+</Warning>
+
+### 💡 Pro Tips
+
+<Tabs>
+  <Tab title="Tip 1: Clean JPG Artifacts">
+    **Logo preset automatically removes compression noise**
+
+    Before converting:
+    - JPEG logo from website (artifacts visible)
+    - Compression noise around edges
+    - Color banding
+
+    After Logo preset:
+    - ✓ Clean, crisp edges
+    - ✓ Noise removed
+    - ✓ Smooth colors
+
+    Perfect for salvaging low-quality client logos!
+  </Tab>
+
+  <Tab title="Tip 2: Reduce Colors Further">
+    **For very simple logos (2-3 colors)**
+
+    After selecting Logo preset:
+    1. Manually reduce **Colors** to 8 or even 4
+    2. Results in even cleaner output
+    3. Smaller file size
+    4. Easier to recolor in Figma
+
+    **Example**: Two-color logo → set Colors to 4
+  </Tab>
+
+  <Tab title="Tip 3: Flatten for Easier Editing">
+    **After vectorizing logos**
+
+    1. Select the converted SVG
+    2. Right-click → **Flatten** (`Cmd/Ctrl + E`)
+    3. Merges overlapping shapes
+    4. Cleaner layer structure
+    5. Easier color management
+  </Tab>
+
+  <Tab title="Tip 4: Remove Backgrounds First">
+    **Best practice before converting**
+
+    1. Remove background in Figma or remove.bg
+    2. Vectorize just the logo
+    3. Cleaner result (no background noise)
+    4. Smaller file size
+
+    **Huge difference** in output quality!
+  </Tab>
+</Tabs>
+
+### Expected Results
+
+| Metric | Range | Notes |
+|--------|-------|-------|
+| **File Size** | 5-50 KB | Very small, web-optimized |
+| **Processing Time** | 5-10 sec | Fast conversion |
+| **Editability** | ⭐⭐⭐⭐⭐ | Simple paths, easy to modify |
+| **Accuracy** | ⭐⭐⭐⭐ | Clean edges, simplified details |
+
+---
+
+## 🎨 Illustration Preset
+
+**Optimized for**: Balanced detail, rich colors, general use
+
+⭐ **Recommended starting point for 90% of users**
+
+
+### Best Use Cases
+
+<CardGroup cols={3}>
+  <Card icon="paint-brush">
+    **Flat Illustrations**
+
+    Vector art, digital paintings
+  </Card>
+
+  <Card icon="palette">
+    **UI Graphics**
+
+    Onboarding, marketing visuals
+  </Card>
+
+  <Card icon="image">
+    **Stock Images**
+
+    Downloaded illustrations
+  </Card>
+
+  <Card icon="shapes">
+    **Design Elements**
+
+    Decorative patterns, backgrounds
+  </Card>
+
+  <Card icon="chart-pie">
+    **Infographics**
+
+    Data visualization graphics
+  </Card>
+
+  <Card icon="gift">
+    **Presentation Graphics**
+
+    Slides, decks, reports
+  </Card>
+</CardGroup>
+
+### Technical Settings
+
+| Parameter | Value | Purpose |
+|-----------|-------|---------|
+| **Quality** | Standard (0.1) | Good precision, fast processing |
+| **Detail** | 50 (min_area: 2.75px) | Balanced noise filtering |
+| **Colors** | 32 | Rich color palette |
+| **Draw Style** | Fill Shapes | Standard filled shapes |
+| **Fill Gaps** | Enabled | Smooth rendering |
+
+### Why This is the Default Choice
+
+<CardGroup cols={2}>
+  <Card title="Perfect Balance" icon="balance-scale">
+    - Not too aggressive (like Logo)
+    - Not too slow (like High-Fidelity)
+    - Just right for most images
+  </Card>
+
+  <Card title="Handles Most Images" icon="check-double">
+    - Simple graphics: ✓ Works great
+    - Medium complexity: ✓ Perfect
+    - Complex art: ✓ Good starting point
+  </Card>
+
+  <Card title="Optimal File Size" icon="file">
+    - Smaller than High-Fidelity
+    - More detailed than Logo
+    - 50-200 KB typical range
+  </Card>
+
+  <Card title="Fast Processing" icon="bolt">
+    - 10-15 seconds average
+    - Quick preview testing
+    - Efficient workflow
+  </Card>
+</CardGroup>
+
+### ✅ Use Illustration Preset When
+
+- **Not sure which preset** to choose (default choice!)
+- Converting **flat design** illustrations
+- Image has **moderate detail** (not too simple, not photo-realistic)
+- Color palette has **5-30 colors**
+- You want **quick, reliable** results without tweaking
+- **General purpose** vectorization
+
+### 💡 Pro Tips
+
+<AccordionGroup>
+  <Accordion title="Adjust Detail for Your Image" icon="sliders">
+    Start with Illustration (Detail 50), then fine-tune:
+
+    - **Simple flat art**: Reduce Detail to 30-40
+    - **Textured illustrations**: Increase Detail to 60-70
+    - **Standard illustrations**: Keep at 50 (default)
+
+    Use HD Preview (2 credits) to test!
+  </Accordion>
+
+  <Accordion title="Perfect for Marketing Materials" icon="bullhorn">
+    Illustration preset excels at:
+    - Stock illustration conversions
+    - Infographic elements
+    - Presentation graphics
+    - Social media visuals
+
+    Preserves enough detail while keeping files manageable.
+  </Accordion>
+
+  <Accordion title="Create Design System Assets" icon="swatchbook">
+    After vectorizing with Illustration preset:
+
+    1. Convert to Figma component (`Cmd/Ctrl + Alt + K`)
+    2. Adjust colors to match design system
+    3. Add to component library
+    4. Create variants for different states
+
+    Perfect for building reusable UI elements!
+  </Accordion>
+</AccordionGroup>
+
+### Expected Results
+
+| Metric | Range | Notes |
+|--------|-------|-------|
+| **File Size** | 50-200 KB | Medium, practical |
+| **Processing Time** | 10-15 sec | Quick turnaround |
+| **Editability** | ⭐⭐⭐⭐ | Manageable complexity |
+| **Accuracy** | ⭐⭐⭐⭐⭐ | Preserves important details |
+
+---
+
+## ✏️ Line Art Preset
+
+**Optimized for**: Hand-drawn sketches, outlines, technical drawings
+
+
+### Key Difference: Stroke-Based Output
+
+<Columns cols={2}>
+  <div>
+    ### Fill Shapes (Other Presets)
+
+
+    - Closed shapes with color fills
+    - Like "coloring inside the lines"
+    - Best for solid graphics
+    - Standard vectorization
+  </div>
+
+  <div>
+    ### Stroke Shapes (Line Art)
+
+
+    - Paths with stroke weight
+    - Like "drawing with a pen"
+    - Best for outlines
+    - **Adjustable line thickness!**
+  </div>
+</Columns>
+
+### Best Use Cases
+
+<CardGroup cols={3}>
+  <Card icon="pen-nib">
+    **Hand Sketches**
+
+    Pencil/ink drawings, doodles
+  </Card>
+
+  <Card icon="draw-polygon">
+    **Technical Drawings**
+
+    Blueprints, wireframes, diagrams
+  </Card>
+
+  <Card icon="book-open">
+    **Coloring Pages**
+
+    Outlines for later coloring
+  </Card>
+
+  <Card icon="signature">
+    **Calligraphy**
+
+    Hand lettering, brush strokes
+  </Card>
+
+  <Card icon="drafting-compass">
+    **Architectural**
+
+    Floor plans, elevations
+  </Card>
+
+  <Card icon="pencil">
+    **Comics**
+
+    Line work, panel outlines
+  </Card>
+</CardGroup>
+
+### Technical Settings
+
+| Parameter | Value | Purpose |
+|-----------|-------|---------|
+| **Quality** | High (0.05) | Precise line capture |
+| **Detail** | 70 (min_area: 1.85px) | Preserve fine strokes |
+| **Colors** | 8 | Focus on lines, minimal fills |
+| **Draw Style** | **Stroke Shapes** | Lines, not fills! |
+| **Fill Gaps** | Disabled | Preserve gaps in outlines |
+
+### ✅ Use Line Art Preset When
+
+- Original is a **hand-drawn sketch** or **line drawing**
+- Image is mostly **black lines on white** (or vice versa)
+- You plan to **add colors later** in Figma
+- You want **adjustable stroke weight** after conversion
+- Converting **coloring book pages**
+- Creating **outline versions** of illustrations
+
+### ❌ Don't Use Line Art Preset For
+
+- Full-color illustrations → Use **Illustration**
+- Logos with solid shapes → Use **Logo**
+- Photos or realistic images → Use **High-Fidelity**
+- Graphics that need filled shapes → Use **Illustration**
+
+### 💡 Pro Tips
+
+<Tabs>
+  <Tab title="Adjust Stroke Width After">
+    **Huge advantage of Line Art preset**:
+
+    After vectorizing:
+    1. Select all paths (`Cmd/Ctrl + A`)
+    2. Change **Stroke** weight in properties
+    3. Make lines thicker or thinner
+    4. No need to re-convert!
+
+  </Tab>
+
+  <Tab title="Perfect for Tracing">
+    **Use Line Art to trace scanned sketches**:
+
+    1. Scan or photograph hand drawing
+    2. Import to Figma
+    3. Vectorize with Line Art preset
+    4. Clean up paths if needed
+    5. Fill with colors manually
+
+    → Custom illustrations from sketches!
+  </Tab>
+
+  <Tab title="Clean Up Noisy Scans">
+    **If scan has paper texture**:
+
+    Before converting:
+    - Increase contrast in Figma
+    - Or use Image Adjustments
+
+    In plugin:
+    - Reduce **Detail** to 40-50
+    - Removes paper texture noise
+    - Keeps main line work
+  </Tab>
+
+  <Tab title="Convert to Fills">
+    **Turn strokes into fillable shapes**:
+
+    After vectorizing:
+    1. Select stroke paths
+    2. Right-click → **Outline Stroke**
+    3. Strokes become filled shapes
+    4. Now you can fill with colors!
+
+    Best of both worlds!
+  </Tab>
+</Tabs>
+
+### Expected Results
+
+| Metric | Range | Notes |
+|--------|-------|-------|
+| **File Size** | 10-100 KB | Small to medium |
+| **Processing Time** | 15-20 sec | Slightly slower (high quality) |
+| **Editability** | ⭐⭐⭐⭐⭐ | Stroke-based, very flexible |
+| **Accuracy** | ⭐⭐⭐⭐⭐ | Captures fine lines precisely |
+
+---
+
+## 🌟 High-Fidelity Preset
+
+**Optimized for**: Maximum detail, complex artwork, photo-realistic images
+
+
+### Technical Settings
+
+| Parameter | Value | Purpose |
+|-----------|-------|---------|
+| **Quality** | Ultra (0.01) | Maximum curve precision |
+| **Detail** | 80 (min_area: 1.4px) | Minimal noise removal |
+| **Colors** | 256 | Full color spectrum |
+| **Draw Style** | Fill Shapes | Standard rendering |
+| **Fill Gaps** | Enabled | Clean rendering |
+
+### ⚠️ Important Trade-Offs
+
+<Warning>
+  **Before using High-Fidelity, consider**:
+
+  | Trade-Off | Impact |
+  |-----------|--------|
+  | 🐢 **Slower Processing** | 30-60 seconds (vs 10-15 for Illustration) |
+  | 📦 **Larger Files** | 500 KB - 2 MB (vs 50-200 KB) |
+  | 🎨 **Complex Paths** | Harder to edit, more anchor points |
+  | 💰 **Same Cost** | Still 10 credits (not cheaper or more expensive) |
+
+  **Recommendation**: **Always try Illustration first**, upgrade if losing critical details.
+</Warning>
+
+### ✅ Use High-Fidelity When
+
+<AccordionGroup>
+  <Accordion title="Other presets lose important details" icon="magnifying-glass">
+    **Situation**: You tried Illustration, but fine features disappeared
+
+    **Solution**: High-Fidelity preserves:
+    - Intricate patterns
+    - Fine textures
+    - Subtle gradations
+    - Complex overlapping shapes
+  </Accordion>
+
+  <Accordion title="Quality matters more than file size" icon="gem">
+    **Use cases**:
+    - Large-format prints
+    - Poster designs
+    - Art projects
+    - Portfolio pieces
+
+    **Why**: When output quality is paramount
+  </Accordion>
+
+  <Accordion title="Complex artistic illustrations" icon="palette">
+    **Perfect for**:
+    - Detailed digital art
+    - Comic book art
+    - Editorial illustrations
+    - Album covers
+
+    **Why**: Preserves artistic intent and fine details
+  </Accordion>
+</AccordionGroup>
+
+### ❌ Don't Use High-Fidelity For
+
+- **Simple logos** → Total overkill, use **Logo**
+- **Everyday illustrations** → **Illustration** works great
+- **Web graphics** → Files too large, use **Illustration**
+- **First attempts** → Start with **Illustration**, upgrade if needed
+- **Quick tests** → Too slow for experimentation
+
+### 💡 Pro Tips
+
+<Tabs>
+  <Tab title="Start with Illustration">
+    **Best practice workflow**:
+
+    1. Try **Illustration** preset first (10 credits)
+    2. Evaluate if details are lost
+    3. If satisfied → Done!
+    4. If not → Try **High-Fidelity** (another 10 credits)
+
+    **Why**: 70% of time, Illustration is enough. Save time and avoid complexity.
+  </Tab>
+
+  <Tab title="Use for Print">
+    **High-Fidelity shines for print**:
+
+    - **Large format** (posters, banners)
+    - **High DPI** requirements
+    - **Art prints** for sale
+    - **Book covers**
+
+    Web graphics rarely need this level of detail.
+  </Tab>
+
+  <Tab title="Simplify After Conversion">
+    **If file is too complex**:
+
+    1. Select SVG paths
+    2. Right-click → **Simplify**
+    3. Reduces anchor points
+    4. Smaller file, easier editing
+
+    Manual simplification after High-Fidelity conversion!
+  </Tab>
+</Tabs>
+
+### Expected Results
+
+| Metric | Range | Notes |
+|--------|-------|-------|
+| **File Size** | 500 KB - 2 MB | Large, not web-optimized |
+| **Processing Time** | 30-60 sec | Slow, be patient |
+| **Editability** | ⭐⭐⭐ | Complex, many paths |
+| **Accuracy** | ⭐⭐⭐⭐⭐ | Near-perfect fidelity |
+
+---
+
+## Preset Comparison Table
+
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Logo</th>
+      <th>Illustration ⭐</th>
+      <th>Line Art</th>
+      <th>High-Fidelity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Best For</strong></td>
+      <td>Simple graphics</td>
+      <td>General use</td>
+      <td>Sketches/outlines</td>
+      <td>Complex art</td>
+    </tr>
+    <tr>
+      <td><strong>Quality</strong></td>
+      <td>Standard</td>
+      <td>Standard</td>
+      <td>High</td>
+      <td>Ultra</td>
+    </tr>
+    <tr>
+      <td><strong>Detail Level</strong></td>
+      <td>Low (30)</td>
+      <td>Medium (50)</td>
+      <td>High (70)</td>
+      <td>Very High (80)</td>
+    </tr>
+    <tr>
+      <td><strong>Colors</strong></td>
+      <td>16</td>
+      <td>32</td>
+      <td>8</td>
+      <td>256</td>
+    </tr>
+    <tr>
+      <td><strong>Draw Style</strong></td>
+      <td>Fill</td>
+      <td>Fill</td>
+      <td><strong>Stroke</strong></td>
+      <td>Fill</td>
+    </tr>
+    <tr>
+      <td><strong>File Size</strong></td>
+      <td>5-50 KB</td>
+      <td>50-200 KB</td>
+      <td>10-100 KB</td>
+      <td>500 KB-2 MB</td>
+    </tr>
+    <tr>
+      <td><strong>Speed</strong></td>
+      <td>⚡⚡⚡ Fast</td>
+      <td>⚡⚡ Medium</td>
+      <td>⚡⚡ Medium</td>
+      <td>⚡ Slow</td>
+    </tr>
+    <tr>
+      <td><strong>Editability</strong></td>
+      <td>⭐⭐⭐⭐⭐</td>
+      <td>⭐⭐⭐⭐</td>
+      <td>⭐⭐⭐⭐⭐</td>
+      <td>⭐⭐⭐</td>
+    </tr>
+    <tr>
+      <td><strong>Recommended Use</strong></td>
+      <td>10% of cases</td>
+      <td>70% of cases ⭐</td>
+      <td>10% of cases</td>
+      <td>10% of cases</td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+## How to Choose: Decision Tree
+
+<Steps>
+  <Step title="Identify Your Image Type">
+    <Tabs>
+      <Tab title="Simple & Clean">
+        **Characteristics**:
+        - Few colors (1-5)
+        - Geometric shapes
+        - Clean edges
+        - No gradients
+
+        → **Logo** preset
+      </Tab>
+
+      <Tab title="Moderate Detail">
+        **Characteristics**:
+        - Multiple colors (5-30)
+        - Flat or semi-flat
+        - Some detail
+        - Standard illustration
+
+        → **Illustration** preset ⭐
+      </Tab>
+
+      <Tab title="Mostly Lines">
+        **Characteristics**:
+        - Outlines/sketches
+        - Black lines on white
+        - Hand-drawn look
+        - Need to color later
+
+        → **Line Art** preset
+      </Tab>
+
+      <Tab title="Very Complex">
+        **Characteristics**:
+        - Many colors (30+)
+        - Fine details
+        - Complex shapes
+        - Photo-realistic
+
+        → Try **Illustration** first, then **High-Fidelity**
+      </Tab>
+    </Tabs>
+  </Step>
+
+  <Step title="Use HD Preview to Test">
+    - Click **HD Preview** (only 2 credits)
+    - Evaluate the result
+    - Satisfied? → Convert! (10 credits)
+    - Not satisfied? → Try different preset or adjust settings
+  </Step>
+
+  <Step title="Experiment Without Fear">
+    **Remember**:
+    - Previews are only 2 credits each
+    - Try multiple presets
+    - Find what works for YOUR image
+    - No "wrong" choice—just optimize!
+  </Step>
+</Steps>
+
+<Note>
+  **Presets are guidelines, not rules.** You can always manually adjust any preset's settings for custom optimization. [Learn about Core Settings →](/user-guide/core-settings)
+</Note>
+
+---
+
+## Next Steps
+
+<CardGroup cols={3}>
+  <Card
+    title="Core Settings"
+    icon="gear"
+    href="/user-guide/core-settings"
+  >
+    Deep dive into Quality, Detail, Colors, and Style controls
+  </Card>
+
+  <Card
+    title="Best Practices"
+    icon="star"
+    href="/user-guide/best-practices"
+  >
+    Scenario-based workflows for different image types
+  </Card>
+
+  <Card
+    title="Advanced Features"
+    icon="wand-sparkles"
+    href="/user-guide/advanced-features"
+  >
+    Custom palettes, stroke width, and power-user tips
+  </Card>
+</CardGroup>

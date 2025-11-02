@@ -1,0 +1,676 @@
+---
+title: Troubleshooting Guide
+description: Systematic solutions for common Vectorized plugin issues. Fix installation, conversion, quality, and performance problems.
+keywords: vectorizer troubleshooting, fix vectorization issues, vectorizer not working, improve vectorization quality
+---
+
+## Problem Diagnosis
+
+Use this guide to systematically diagnose and fix issues with Vectorized (AI Vectorizer) - Image Tracer.
+
+<Note>
+  **Quick tip**: Most issues fall into one of four categories:
+  1. Installation/Loading
+  2. Image Selection
+  3. Conversion Quality
+  4. Performance/Speed
+
+  Jump to the relevant section below.
+</Note>
+
+---
+
+## Installation & Loading Issues
+
+### Plugin Won't Load or Shows Blank Screen
+
+<Steps>
+  <Step title="Check Internet Connection">
+    **Symptom**: Plugin panel is blank or shows loading spinner forever
+
+    **Solution**:
+    1. Verify internet connection (try loading a website)
+    2. Check if firewall/VPN is blocking plugin
+    3. Disable VPN temporarily and retry
+    4. Try different network if possible
+
+    **Why**: Plugin requires online access to communicate with Vectorizer.ai API
+  </Step>
+
+  <Step title="Update Figma">
+    **Symptom**: Plugin crashes or won't open
+
+    **Solution**:
+    - **Desktop**: Help → Check for Updates
+    - **Browser**: Refresh page (`Cmd/Ctrl + R`)
+    - Ensure you're on latest Figma version
+
+    **Why**: Outdated Figma may have compatibility issues
+  </Step>
+
+  <Step title="Clear Cache (Browser Version)">
+    **Symptom**: Plugin loads but behaves strangely
+
+    **Solution**:
+    1. Clear browser cache and cookies
+    2. Hard refresh Figma (`Cmd/Ctrl + Shift + R`)
+    3. Reload plugin
+
+    **Why**: Cached files may be corrupted or outdated
+  </Step>
+
+  <Step title="Restart Figma (Desktop Version)">
+    **Symptom**: Plugin won't respond or freezes
+
+    **Solution**:
+    1. Completely quit Figma (don't just close window)
+    2. Wait 10 seconds
+    3. Reopen Figma
+    4. Launch plugin again
+
+    **Why**: Clears memory and resets plugin state
+  </Step>
+
+  <Step title="Reinstall Plugin">
+    **Last resort solution**:
+
+    1. Remove plugin:
+       - Resources (`Shift + I`) → Plugins
+      - Right-click **Vectorized (AI Vectorizer) - Image Tracer**
+       - Select "Remove plugin"
+    2. Reinstall from [Figma Community](https://www.figma.com/community/plugin/1528574912559745892/vectorized-ai-vectorizer-image-tracer)
+    3. Accept all permissions when prompted
+
+    **Why**: Fresh installation fixes corrupted files
+  </Step>
+</Steps>
+
+<Warning>
+  **Still not working?**
+
+  Contact support with:
+  - Figma version (Desktop/Browser + version number)
+  - Operating system
+  - Screenshot of error (if any)
+  - Steps to reproduce
+
+  Email: zouwenqiang678@gmail.com
+</Warning>
+
+---
+
+## Image Selection Issues
+
+### No Image Preview Appears
+
+<AccordionGroup>
+  <Accordion title="Symptom: Selected node but no preview" icon="image-slash">
+    **Common causes and solutions**:
+
+    **1. Node doesn't have image fill**
+    - **Check**: Look at Fill panel in Figma
+    - **Should see**: "Image" fill type
+    - **Solution**: Make sure selected layer actually contains image
+
+    **2. Image not fully loaded**
+    - **Check**: Is image blurry or low-res in Figma?
+    - **Wait**: For image to fully load
+    - **Try**: Reselecting after image loads
+
+    **3. Unsupported format**
+    - **Supported**: PNG, JPG/JPEG with image fill
+    - **Not supported**: SVG, PDF, GIF, video
+    - **Solution**: Convert to PNG first
+
+    **4. Hidden or locked layer**
+    - **Check**: Layer visibility (eye icon)
+    - **Check**: Layer locked status (lock icon)
+    - **Solution**: Unlock and make visible
+  </Accordion>
+
+  <Accordion title="Quick fix: Copy-paste as fill" icon="copy">
+    **If image won't be detected**:
+
+    1. Copy the image (`Cmd/Ctrl + C`)
+    2. Create a rectangle (`R` key)
+    3. With rectangle selected, paste (`Cmd/Ctrl + V`)
+    4. Image becomes fill of rectangle
+    5. Select rectangle and try plugin again
+
+    **This works 95% of the time** when detection fails!
+  </Accordion>
+</AccordionGroup>
+
+### Buttons Are Disabled
+
+<table>
+  <thead>
+    <tr>
+      <th>Button</th>
+      <th>Disabled When</th>
+      <th>Solution</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>HD Preview</strong></td>
+      <td>
+        • No image selected<br />
+        • Credits < 2<br />
+        • No internet
+      </td>
+      <td>
+        • Select image<br />
+        • Buy credits<br />
+        • Check connection
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Convert to SVG</strong></td>
+      <td>
+        • No image selected<br />
+        • Credits < 10<br />
+        • Processing in progress
+      </td>
+      <td>
+        • Select image<br />
+        • Buy credits<br />
+        • Wait for completion
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+## Conversion Quality Issues
+
+### Edges Look Jagged or Blocky
+
+<Tabs>
+  <Tab title="Problem">
+
+    **Symptoms**:
+    - Curves have "stair-stepping"
+    - Edges not smooth
+    - Rough appearance when zoomed
+
+    **Especially noticeable**:
+    - On circular shapes
+    - Curved text
+    - Logos with flowing lines
+  </Tab>
+
+  <Tab title="Solution">
+    **Increase Quality setting**:
+
+    1. Move **Quality** slider to **High** or **Ultra**
+    2. Use HD Preview to compare (2 credits)
+    3. Convert when satisfied
+
+    **Why it works**:
+    - Higher quality = tighter curve fitting
+    - More anchor points = smoother curves
+    - Trade-off: Larger file size
+
+    **Alternative**: If quality is already Ultra, source image may be too low-res
+
+    
+  </Tab>
+</Tabs>
+
+### Too Many Dots, Noise, or Artifacts
+
+<Tabs>
+  <Tab title="Problem">
+
+    **Symptoms**:
+    - Tiny dots everywhere
+    - JPG compression squares as shapes
+    - Paper texture in scanned images
+    - Messy, complex output
+
+    **Common in**:
+    - JPEG logos from websites
+    - Scanned documents
+    - Low-quality screenshots
+    - Photos
+  </Tab>
+
+  <Tab title="Solution">
+    **Decrease Detail setting**:
+
+    1. Move **Detail** slider LEFT (toward "Less")
+    2. Try Detail value of **25-35**
+    3. Preview to check if noise removed
+    4. Lower more if needed (down to 15-20)
+
+    **Why it works**:
+    - Lower detail = removes smaller shapes
+    - JPG artifacts are small shapes
+    - Aggressive filtering = cleaner output
+
+    **Also try**:
+    - Using **Logo** preset (Detail 30 default)
+    - Increasing contrast of source image before converting
+
+    
+  </Tab>
+</Tabs>
+
+### Colors Are Wrong or Limited
+
+<Tabs>
+  <Tab title="Problem">
+
+    **Symptoms**:
+    - Colors look posterized/banded
+    - Subtle color variations lost
+    - Gradients have visible steps
+    - Wrong shades
+
+    **Common in**:
+    - Illustrations with many colors
+    - Photos
+    - Gradient-heavy graphics
+    - Artwork with subtle shading
+  </Tab>
+
+  <Tab title="Solution">
+    **Increase Colors setting**:
+
+    1. Open **Colors** dropdown
+    2. Select higher value: **64** or **256**
+    3. Or select **Unlimited** (0)
+    4. Preview to compare
+
+    **Why it works**:
+    - More colors = more accurate representation
+    - Gradients preserved better
+    - Subtle variations captured
+
+    **Trade-offs**:
+    - Larger file sizes
+    - More complex for editing
+    - Longer processing time
+
+    **Alternative**: Use Custom Palette if specific colors needed
+
+    
+  </Tab>
+</Tabs>
+
+### Lost Important Details
+
+<Tabs>
+  <Tab title="Problem">
+
+    **Symptoms**:
+    - Fine lines disappeared
+    - Small features missing
+    - Texture oversimplified
+    - Looks "too clean"
+
+    **Common in**:
+    - Hand-drawn sketches
+    - Detailed artwork
+    - Textured illustrations
+    - Complex patterns
+  </Tab>
+
+  <Tab title="Solution">
+    **Increase Detail setting**:
+
+    1. Move **Detail** slider RIGHT (toward "More")
+    2. Try Detail value of **65-75**
+    3. Preview to verify details preserved
+    4. Increase more if needed (up to 90-100)
+
+    **Why it works**:
+    - Higher detail = keeps smaller shapes
+    - Fine lines preserved
+    - Texture retained
+
+    **Also consider**:
+    - Switching to **High-Fidelity** preset
+    - Increasing **Quality** to High/Ultra
+    - Using higher-resolution source image
+
+    **Trade-offs**:
+    - May include some noise
+    - Larger file sizes
+    - More complex output
+
+    
+  </Tab>
+</Tabs>
+
+### Wrong Style (Need Strokes Instead of Fills)
+
+<Tabs>
+  <Tab title="Problem">
+    **Symptom**: Converted sketch has filled shapes instead of strokes
+
+    **Example**: Hand-drawn lines became solid shapes, not outlines
+
+    **Why it happened**: Used Fill preset instead of Line Art
+  </Tab>
+
+  <Tab title="Solution">
+    **Use correct Draw Style**:
+
+    1. Select **Line Art** preset
+       - OR manually set **Draw Style** to "Stroke Shapes"
+    2. Adjust **Stroke Width** (2-4px typical)
+    3. Convert again
+
+    **Alternative - Fix after converting**:
+    - In Figma: Right-click → "Outline Stroke"
+    - Converts strokes to fills if needed
+    - Or vice versa with stroke effects
+
+    **When to use each**:
+    - **Fill**: 90% of cases (logos, icons, illustrations)
+    - **Stroke**: Line art, sketches, outlines
+  </Tab>
+</Tabs>
+
+---
+
+## Performance & Processing Issues
+
+### Conversion Takes Too Long (> 2 Minutes)
+
+<AccordionGroup>
+  <Accordion title="Normal processing times" icon="clock">
+    **Expected durations**:
+
+    | Preset | Image Complexity | Expected Time |
+    |--------|-----------------|---------------|
+    | Logo | Simple | 5-10 sec |
+    | Illustration | Medium | 10-20 sec |
+    | Line Art | Medium | 15-25 sec |
+    | High-Fidelity | Complex | 30-90 sec |
+
+    **If longer than 2 minutes**: Something is wrong
+  </Accordion>
+
+  <Accordion title="Solution 1: Check internet speed" icon="wifi">
+    **Slow upload = slow processing**:
+
+    1. Test internet speed (speedtest.net)
+    2. If slow, try different network
+    3. Close bandwidth-heavy apps
+    4. Try again
+
+    **Why**: Your image uploads to API, results download back
+  </Accordion>
+
+  <Accordion title="Solution 2: Reduce image complexity" icon="compress">
+    **Simplify the conversion**:
+
+    1. **Lower Quality**: Use Standard instead of Ultra
+    2. **Reduce Detail**: Lower to 30-40
+    3. **Limit Colors**: Use 32 instead of 256
+    4. **Resize source**: If over 3000px, resize smaller
+
+    **Why**: Complex settings + large images = longer processing
+  </Accordion>
+
+  <Accordion title="Solution 3: Avoid High-Fidelity for testing" icon="gem">
+    **High-Fidelity is slow by design**:
+
+    - Can take 60-90 seconds normally
+    - Not a bug, just computationally intensive
+    - Use **Illustration** for testing
+    - Only use High-Fidelity for final output
+
+    **Tip**: Preview with Illustration, convert with High-Fidelity if needed
+  </Accordion>
+
+  <Accordion title="If stuck for 3+ minutes" icon="triangle-exclamation">
+    **Likely failed silently**:
+
+    1. Refresh Figma (`Cmd/Ctrl + R`)
+    2. Relaunch plugin
+    3. Try again with simpler settings
+    4. If persists, contact support
+
+    **Check**: Credits should be refunded if failed
+  </Accordion>
+</AccordionGroup>
+
+### File Size Too Large
+
+<Tabs>
+  <Tab title="Problem">
+    **Symptoms**:
+    - SVG file over 500 KB (for simple graphics)
+    - Over 2 MB (even for complex art)
+    - Figma lags when editing
+    - Export takes forever
+
+    **Causes**:
+    - High-Fidelity preset
+    - Ultra quality
+    - Very high Detail (80-100)
+    - 256 colors or Unlimited
+  </Tab>
+
+  <Tab title="Solution">
+    **Reduce file size strategies**:
+
+    **Before converting** (best approach):
+    1. Lower **Quality** to Standard or High
+    2. Reduce **Detail** to 30-50
+    3. Limit **Colors** to 16-32
+    4. Use **Logo** or **Illustration** preset (not High-Fidelity)
+
+    **After converting**:
+    1. Select SVG paths in Figma
+    2. Right-click → **Simplify**
+    3. Reduces anchor points
+    4. Smaller file, slightly less accurate
+
+    **Also try**:
+    - **Flatten** shapes (Right-click → Flatten)
+    - Delete invisible/unnecessary paths
+    - **Boolean operations** to merge shapes
+
+    **File size targets**:
+    - Logos: 5-50 KB
+    - Icons: 10-100 KB
+    - Illustrations: 50-200 KB
+    - Complex art: 200-500 KB
+    - Over 500 KB: Probably too large
+  </Tab>
+</Tabs>
+
+---
+
+## Credits & Purchase Issues
+
+### Credits Not Updating After Purchase
+
+<Steps>
+  <Step title="Wait 30 Seconds">
+    - Credit updates may take 10-30 seconds
+    - Refresh plugin if needed
+    - Check balance again
+  </Step>
+
+  <Step title="Refresh Plugin">
+    - Close and reopen plugin
+    - Or refresh Figma entirely
+    - Credits should appear
+  </Step>
+
+  <Step title="Check Email">
+    - Look for purchase confirmation from PayPro
+    - Verify payment went through
+    - Check spam folder
+  </Step>
+
+  <Step title="Contact Support">
+    If credits still missing after 5 minutes:
+
+    **Email**: zouwenqiang678@gmail.com
+
+    **Include**:
+    - Purchase confirmation/receipt
+    - Figma account email
+    - Timestamp of purchase
+    - Screenshot of credit balance
+
+    **Response time**: Usually within 24 hours
+  </Step>
+</Steps>
+
+### Credits Deducted But No Result
+
+<Warning>
+  **This shouldn't happen** — credits auto-refund on errors
+</Warning>
+
+**If it does**:
+
+1. **Check canvas thoroughly**
+   - SVG might be placed far from view
+   - Press `Shift + 1` to zoom to see all
+   - Check layers panel for new layers
+
+2. **Check for error message**
+   - Look for Figma notifications
+   - Check plugin error messages
+   - May explain what went wrong
+
+3. **Wait 60 seconds**
+   - Possible network delay
+   - Credits may auto-refund
+   - Result may appear late
+
+4. **Contact support immediately**
+   - Email: zouwenqiang678@gmail.com
+   - Include: Timestamp, image description, credits deducted
+   - We'll refund if conversion genuinely failed
+
+---
+
+## Error Messages
+
+<AccordionGroup>
+  <Accordion title="Error: Network Error" icon="wifi-slash">
+    **Meaning**: Plugin can't communicate with API
+
+    **Causes**:
+    - No internet connection
+    - Firewall blocking
+    - VPN interfering
+
+    **Solutions**:
+    1. Check internet connection
+    2. Disable VPN/proxy
+    3. Try different network
+    4. Check firewall settings
+  </Accordion>
+
+  <Accordion title="Error: Processing Timeout" icon="clock">
+    **Meaning**: Conversion took too long and timed out
+
+    **Causes**:
+    - Very large/complex image
+    - Ultra quality + High-Fidelity
+    - Slow network
+
+    **Solutions**:
+    1. Use simpler settings (Standard quality, Detail 50)
+    2. Resize image smaller (under 2000px)
+    3. Try faster internet
+    4. Avoid High-Fidelity preset
+  </Accordion>
+
+  <Accordion title="Error: Insufficient Credits" icon="coins">
+    **Meaning**: Not enough credits for action
+
+    **Required**:
+    - HD Preview: 2 credits
+    - Convert to SVG: 10 credits
+
+    **Solution**:
+    - [Purchase credits](/support/credits-pricing)
+    - Or wait if purchase is processing
+  </Accordion>
+
+  <Accordion title="Error: Invalid Image" icon="image-slash">
+    **Meaning**: Image format not supported or corrupted
+
+    **Causes**:
+    - Not PNG/JPG format
+    - Corrupted image file
+    - Image too large (>50 MB)
+
+    **Solutions**:
+    1. Export image as new PNG
+    2. Verify file isn't corrupted
+    3. Resize if over 10,000px dimensions
+    4. Try different image
+  </Accordion>
+
+  <Accordion title="Error: Server Error (500/503)" icon="server">
+    **Meaning**: API server issue
+
+    **Causes**:
+    - Temporary server downtime
+    - High load on servers
+    - Maintenance
+
+    **Solutions**:
+    1. Wait 5-10 minutes
+    2. Try again
+    3. If persists, check status page
+    4. Contact support if ongoing
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Still Need Help?
+
+<CardGroup cols={3}>
+  <Card
+    title="FAQ"
+    icon="circle-question"
+    href="/support/faq"
+  >
+    Check frequently asked questions
+  </Card>
+
+  <Card
+    title="Best Practices"
+    icon="star"
+    href="/user-guide/best-practices"
+  >
+    Learn optimal workflows for different scenarios
+  </Card>
+
+  <Card
+    title="Contact Support"
+    icon="life-ring"
+    href="mailto:zouwenqiang678@gmail.com"
+  >
+    Email: zouwenqiang678@gmail.com
+  </Card>
+</CardGroup>
+
+<Note>
+  **When contacting support, include**:
+
+  - Detailed problem description
+  - Steps to reproduce
+  - Screenshots/screen recording
+  - Figma version (Desktop/Browser)
+  - Settings you used
+  - Original image (if possible)
+
+  More info = faster resolution!
+</Note>

@@ -1,0 +1,344 @@
+---
+title: Installation & Setup
+description: Get Vectorized (AI Vectorizer) - Image Tracer up and running in minutes. Step-by-step installation guide for Figma Desktop and Browser.
+keywords: install figma vectorizer, figma plugin setup, vectorizer installation guide
+---
+
+
+## Install the Plugin
+
+Get Vectorized (AI Vectorizer) - Image Tracer installed and ready to use in just a few clicks.
+
+<Steps>
+  <Step title="Open Figma Community">
+    <Tabs>
+      <Tab title="Direct Link (Fastest)">
+        Click the button below to install directly from Figma Community:
+
+        <Card
+          title="Install Vectorized (AI Vectorizer)"
+          icon="download"
+          href="https://www.figma.com/community/plugin/1528574912559745892/vectorized-ai-vectorizer-image-tracer"
+          color="#16A34A"
+        >
+          Open in Figma Community →
+        </Card>
+
+        This will open Figma and take you directly to the plugin page.
+      </Tab>
+
+      <Tab title="Manual Search">
+        **Option 1: Using Resources Panel**
+        1. Open any Figma file
+        2. Press `Shift + I` (or click **Resources** in the toolbar)
+        3. Click the **Plugins** tab
+        4. Search for **"Vectorized (AI Vectorizer) - Image Tracer"** or **"Vectorized"**
+        5. Click **Install** next to the plugin
+
+        **Option 2: Using Figma Community**
+        1. Go to [figma.com/community](https://figma.com/community)
+        2. Search for **"Vectorized (AI Vectorizer) - Image Tracer"** or **"Vectorized"** in the search bar
+        3. Click on the plugin from results
+        4. Click the **Install** button
+      </Tab>
+    </Tabs>
+  </Step>
+
+  <Step title="Launch the Plugin">
+    After installation, run the plugin using any of these methods:
+
+    <AccordionGroup>
+      <Accordion title="Method 1: Resources Panel (Recommended)" icon="grid">
+        1. Press `Shift + I` or click **Resources** in the toolbar
+        2. Go to the **Plugins** tab
+        3. Find **Vectorized (AI Vectorizer) - Image Tracer** in your saved plugins
+        4. Click to run
+
+        <Tip>
+          **Pro tip**: Right-click the plugin and select **"Run"** to launch it without opening the Resources panel each time.
+        </Tip>
+      </Accordion>
+
+      <Accordion title="Method 2: Quick Actions (Fastest)" icon="bolt">
+        1. Press `Cmd + /` (Mac) or `Ctrl + /` (Windows) to open Quick Actions
+        2. Type **"Vectorized (AI Vectorizer) - Image Tracer"** 
+        3. Press `Enter` when the plugin appears
+
+        This is the fastest way to launch after your first use!
+      </Accordion>
+
+      <Accordion title="Method 3: Right-Click Menu" icon="mouse-pointer">
+        1. **Right-click** on any image in your canvas
+        2. Hover over **Plugins**
+        3. Select **Vectorized (AI Vectorizer) - Image Tracer** from the submenu
+
+        Great for when you're already working with an image!
+      </Accordion>
+
+      <Accordion title="Method 4: Menu Bar" icon="bars">
+        1. Click **Plugins** in the top menu
+        2. Select **Vectorized (AI Vectorizer) - Image Tracer** from the dropdown
+
+        Available in both Desktop and Browser versions.
+      </Accordion>
+    </AccordionGroup>
+  </Step>
+
+  <Step title="Verify Installation">
+    When the plugin launches successfully, you should see:
+
+    <Check>✓ Plugin panel opens on the right side of Figma</Check>
+    <Check>✓ **Settings** panel visible on the left with preset options</Check>
+    <Check>✓ **Credit balance** displayed at the top (shows 0 if you haven't purchased yet)</Check>
+    <Check>✓ **Canvas preview area** in the center</Check>
+    <Check>✓ **Convert to SVG** button at the bottom</Check>
+
+    <img src="/images/plugin-interface-labeled.png" alt="Plugin interface overview" />
+
+    <Warning>
+      **Not seeing the interface?**
+
+      - Check your internet connection (plugin requires online access)
+      - Try refreshing Figma (`Cmd/Ctrl + R`)
+      - Make sure you're using a supported Figma version (see requirements below)
+      - Restart Figma and try again
+    </Warning>
+
+    <Tip>
+      **First time user?** You start with **0 credits**. Don't worry—you can still explore the interface and test all settings. When you're ready to convert, purchase credits from the plugin. [View pricing →](/support/credits-pricing)
+    </Tip>
+  </Step>
+</Steps>
+
+---
+
+## System Requirements
+
+<CardGroup cols={2}>
+  <Card title="Figma Desktop" icon="desktop" color="#16A34A">
+    **Recommended for best performance**
+
+    - **macOS**: 10.15 (Catalina) or later
+    - **Windows**: Windows 10 or later
+    - **Linux**: Ubuntu 18.04+ or equivalent
+
+    ✓ Faster processing
+
+    ✓ More stable connection
+
+    ✓ Better for large images
+  </Card>
+
+  <Card title="Figma Browser" icon="browser" color="#3B82F6">
+    **Works in modern web browsers**
+
+    - **Chrome/Edge**: Version 90 or later
+    - **Safari**: Version 14 or later
+    - **Firefox**: Version 88 or later
+
+    ✓ No installation needed
+
+    ✓ Works on any OS
+
+    ✓ Always up-to-date
+  </Card>
+</CardGroup>
+
+<Warning>
+  **Internet connection required**
+
+  Vectorized communicates with the Vectorizer.ai API to process your images. An active internet connection is necessary for all conversions and previews.
+</Warning>
+
+---
+
+## Permissions Explained
+
+The plugin requests the following permissions to function properly:
+
+| Permission | Why We Need It | What We Access |
+|------------|----------------|----------------|
+| 📄 **Current page access** | To read selected images and place converted SVGs back into your design | Only the currently selected image node and its properties |
+| 🌐 **Network access** | To send images to Vectorizer.ai API for processing and receive SVG results | Communication with our secure backend API only |
+| 👤 **User information** | To manage your credit balance and track usage | Only your Figma user ID and name (no personal/payment data) |
+
+<Note>
+  **Your privacy matters**
+
+  We take data privacy seriously:
+  - ✓ We **never store** your design files or images
+  - ✓ Images are **immediately deleted** after conversion
+  - ✓ We **do not** use your images for AI training
+  - ✓ No personal data is collected beyond Figma user ID
+  - ✓ All communication is encrypted (HTTPS)
+
+  [Read our full Privacy Policy →](/legal/privacy-policy)
+</Note>
+
+---
+
+## Understanding Credit Balance
+
+After installation, you'll see your credit balance displayed at the top of the plugin:
+
+<Tabs>
+  <Tab title="Sufficient Credits (Green)">
+
+    **10+ credits remaining**
+
+    You have enough credits for full conversions. Each conversion costs:
+    - **HD Preview**: 2 credits (with watermark)
+    - **Convert to SVG**: 10 credits (no watermark)
+  </Tab>
+
+  <Tab title="Low Credits (Yellow)">
+
+    **2-9 credits remaining**
+
+    You can still use HD Preview, but may not have enough for full conversions. Consider purchasing more credits.
+  </Tab>
+
+  <Tab title="Insufficient Credits (Red)">
+
+    **0-1 credits remaining**
+
+    You'll need to purchase credits to use the plugin. Don't worry—it only takes a minute!
+
+    <Card
+      title="Buy Credits Now"
+      icon="credit-card"
+      href="/support/credits-pricing"
+      color="#16A34A"
+    >
+      View pricing and purchase credits →
+    </Card>
+  </Tab>
+</Tabs>
+
+### Credit Expiration
+
+<Warning>
+  **Credits expire after 6 months**
+
+  - You'll see warnings 7 days and 3 days before expiration
+  - Purchasing new credits **resets the expiration date** for all credits
+  - Expired credits cannot be recovered
+  - Use it or lose it!
+</Warning>
+
+---
+
+## Troubleshooting Installation
+
+<AccordionGroup>
+  <Accordion title="Plugin doesn't appear in my plugins list" icon="circle-xmark">
+    **Possible causes:**
+    - Plugin wasn't installed successfully
+    - You're looking in the wrong Figma account
+    - Browser/Desktop cache issue
+
+    **Solutions:**
+    1. Try installing again using the [direct link](https://www.figma.com/community/plugin/1528574912559745892/vectorized-ai-vectorizer-image-tracer)
+    2. Check if you're signed into the correct Figma account
+    3. Clear browser cache (Browser version) or restart Figma (Desktop version)
+    4. Check Figma Community to verify installation status
+  </Accordion>
+
+  <Accordion title="Plugin panel is blank or won't load" icon="spinner">
+    **Possible causes:**
+    - No internet connection
+    - Firewall/VPN blocking the plugin
+    - Outdated Figma version
+
+    **Solutions:**
+    1. **Check internet connection** - Plugin requires online access
+    2. **Disable VPN/proxy** temporarily to test
+    3. **Update Figma** to the latest version
+    4. **Restart Figma** completely (quit and reopen)
+    5. Try in a **different browser** (if using Browser version)
+  </Accordion>
+
+  <Accordion title="'Insufficient permissions' error" icon="lock">
+    **What this means:**
+    The plugin needs certain permissions to function, but they weren't granted during installation.
+
+    **Solution:**
+    1. **Uninstall** the plugin:
+       - Go to Resources (`Shift + I`) → Plugins
+       - Right-click on Vectorized (AI Vectorizer) - Image Tracer
+       - Select "Remove plugin"
+    2. **Reinstall** using the direct link
+    3. **Accept all permissions** when prompted
+  </Accordion>
+
+  <Accordion title="Can't find the plugin after installation" icon="magnifying-glass">
+    **Try these locations:**
+
+    1. **Resources Panel** (`Shift + I`) → Plugins tab
+    2. **Quick Actions** (`Cmd/Ctrl + /`) → Type "Vec"
+    3. **Menu Bar** → Plugins → Vectorized (AI Vectorizer) - Image Tracer
+    4. **Right-click** any image → Plugins → Vectorized (AI Vectorizer) - Image Tracer
+
+    If still not found, reinstall the plugin.
+  </Accordion>
+
+  <Accordion title="Plugin works on Desktop but not Browser (or vice versa)" icon="laptop-mobile">
+    **This is normal behavior**
+
+    Plugins installed on Desktop aren't automatically available in Browser, and vice versa. You need to:
+
+    - **Install separately** in each environment
+    - Use the same Figma account
+    - Credits are shared across both versions
+  </Accordion>
+</AccordionGroup>
+
+<Card
+  title="Still Having Issues?"
+  icon="life-ring"
+  href="/support/troubleshooting"
+>
+  Visit our comprehensive troubleshooting guide or contact support →
+</Card>
+
+---
+
+## Next Steps
+
+Congratulations! Vectorized (AI Vectorizer) - Image Tracer is now installed and ready to use.
+
+<CardGroup cols={3}>
+  <Card
+    title="Quick Start Guide"
+    icon="rocket"
+    href="/getting-started/quick-start"
+    color="#16A34A"
+  >
+    Complete your first conversion in 5 minutes
+  </Card>
+
+  <Card
+    title="Buy Credits"
+    icon="credit-card"
+    href="/support/credits-pricing"
+  >
+    Purchase credits to start vectorizing
+  </Card>
+
+  <Card
+    title="Explore Presets"
+    icon="sliders"
+    href="/user-guide/understanding-presets"
+  >
+    Learn about Logo, Illustration, Line Art, and High-Fidelity modes
+  </Card>
+</CardGroup>
+
+<Tip>
+  **Recommended path for new users:**
+
+  1. ✓ Installation complete (you are here!)
+  2. → [Purchase credits](/support/credits-pricing) (start with $4 Starter Pack)
+  3. → [Quick Start Guide](/getting-started/quick-start) (your first conversion)
+  4. → [Understanding Presets](/user-guide/understanding-presets) (optimize results)
+</Tip>

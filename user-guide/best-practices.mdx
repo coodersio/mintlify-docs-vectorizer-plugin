@@ -1,0 +1,711 @@
+---
+title: Best Practices
+description: Real-world workflows and pro tips for vectorizing logos, illustrations, line art, and photos. Learn from common scenarios and optimize your results.
+keywords: vectorizer best practices, logo vectorization workflow, illustration vectorization tips, figma vector optimization
+---
+
+
+
+## Scenario-Based Workflows
+
+Learn the **optimal workflow** for common vectorization scenarios. Each includes preset recommendations, settings, and post-processing tips.
+
+---
+
+## Scenario 1: Company Logo Vectorization
+
+**Goal**: Convert a client's low-res logo to crisp, editable vector
+
+
+
+### Starting Point
+
+**Typical situation**:
+- Client sent logo as JPEG from their website
+- Visible compression artifacts
+- Low resolution (500px wide)
+- Need vector for print and web
+
+### Recommended Workflow
+
+<Steps>
+  <Step title="Prepare the Image">
+    **Before converting**:
+
+    1. **Remove background** (if present)
+       - Use Figma's background removal
+       - Or remove.bg service
+       - Clean background = cleaner vectorization
+
+    2. **Check resolution**
+       - If under 300px wide, ask client for larger version
+       - Tiny logos produce poor results
+       - Ideal: 800-2000px wide
+
+    3. **Crop tightly**
+       - Remove excessive white space
+       - Frame just the logo itself
+       - Faster processing + better results
+  </Step>
+
+  <Step title="Choose Settings">
+    **Recommended configuration**:
+
+    - **Preset**: Logo
+    - **Quality**: Standard (increase to High if edges look rough in preview)
+    - **Detail**: 25-30 (aggressive noise removal for JPG artifacts)
+    - **Colors**: 16 or fewer (logos rarely need more)
+    - **Draw Style**: Fill Shapes
+    - **Fill Gaps**: Enabled
+
+    <Tip>
+      **Why Detail 25-30**: Removes JPG compression noise while keeping logo clean
+    </Tip>
+  </Step>
+
+  <Step title="Preview First">
+    Always use **HD Preview** (2 credits) for logos:
+
+    1. Check edge smoothness (zoom to 400%)
+    2. Verify colors are correct
+    3. Look for unwanted artifacts
+    4. If issues, adjust Detail or Quality
+
+    **Common adjustments**:
+    - Edges rough? → Increase Quality to High
+    - Too many dots? → Decrease Detail to 20
+    - Colors wrong? → Reduce Colors to 8 or add Custom Palette
+  </Step>
+
+  <Step title="Convert">
+    Once preview looks good, click **Convert to SVG** (10 credits).
+
+    SVG appears next to original image.
+  </Step>
+
+  <Step title="Post-Processing in Figma">
+    **Clean up the result**:
+
+    1. **Flatten overlapping shapes**
+       - Select SVG → Right-click → Flatten (`Cmd/Ctrl + E`)
+       - Merges layers for easier editing
+
+    2. **Simplify if needed**
+       - Right-click → Simplify
+       - Reduces anchor points
+       - Smaller file size
+
+    3. **Adjust colors to brand**
+       - Double-click SVG to enter group
+       - Select shapes and apply brand colors
+       - Or use Find & Replace color plugins
+
+    4. **Create component**
+       - `Cmd/Ctrl + Alt + K` to make component
+       - Add to library for reuse
+       - Create dark/light variants if needed
+
+    
+  </Step>
+</Steps>
+
+### Logo-Specific Tips
+
+<AccordionGroup>
+  <Accordion title="For very simple logos (1-3 colors)" icon="shapes">
+    **Ultra-minimal workflow**:
+
+    - Reduce **Colors** to 4 or 8
+    - Decrease **Detail** to 15-20
+    - Results in very clean, simple vector
+    - Smallest possible file size
+    - Easy to edit
+
+    **Perfect for**: Wordmarks, simple icons, geometric logos
+  </Accordion>
+
+  <Accordion title="For logos with gradients" icon="gradient">
+    **Challenge**: Logos with gradients are tricky
+
+    **Option 1 - Preserve gradient**:
+    - Use **Illustration** preset (not Logo)
+    - Increase **Colors** to 64 or 256
+    - Detail around 50
+    - Gradient will be stepped/posterized but preserved
+
+    **Option 2 - Flatten gradient** (recommended):
+    - Use **Logo** preset with Detail 30
+    - Gradient becomes solid colors
+    - Manually recreate gradient in Figma (smoother result)
+  </Accordion>
+
+  <Accordion title="For logos with text" icon="font">
+    **Important**: Vectorized text becomes shapes (not editable text)
+
+    **Better approach**:
+    1. Vectorize logo separately from text
+    2. Recreate text in Figma using matching font
+    3. Or: Outline text after vectorizing, then adjust in Figma
+
+    **Why**: Editable text is more flexible than traced shapes
+  </Accordion>
+</AccordionGroup>
+
+### Expected Results
+
+| Metric | Typical Range |
+|--------|--------------|
+| **File Size** | 5-50 KB |
+| **Processing Time** | 5-10 seconds |
+| **Quality** | Professional, print-ready |
+| **Editability** | ⭐⭐⭐⭐⭐ Easy |
+
+---
+
+## Scenario 2: Flat Illustration Vectorization
+
+**Goal**: Convert stock illustration or artwork to editable vector
+
+
+
+### Starting Point
+
+**Typical situation**:
+- Downloaded illustration from stock site
+- PNG format, decent resolution
+- Want to customize colors and elements
+- For landing page or presentation
+
+### Recommended Workflow
+
+<Steps>
+  <Step title="Assess the Illustration">
+    **Check complexity**:
+
+    - **Simple flat** (few colors, clean shapes) → Start with Logo preset
+    - **Moderate** (10-20 colors, some detail) → Illustration preset ⭐
+    - **Complex** (30+ colors, gradients) → High-Fidelity preset
+
+    Most fall into "Moderate" category → **Illustration preset**
+  </Step>
+
+  <Step title="Choose Settings">
+    **Recommended for most illustrations**:
+
+    - **Preset**: Illustration
+    - **Quality**: Standard
+    - **Detail**: 50 (adjust based on texture)
+    - **Colors**: 32 (increase to 64 if many colors)
+    - **Draw Style**: Fill Shapes
+    - **Fill Gaps**: Enabled
+
+    **For textured illustrations**:
+    - Increase **Detail** to 60-70 to preserve texture
+    - Increase **Colors** to 64
+
+    **For simple flat art**:
+    - Decrease **Detail** to 35-40 for cleaner result
+    - Colors can stay at 32 or reduce to 16
+  </Step>
+
+  <Step title="Preview & Iterate">
+    1. HD Preview with initial settings (2 credits)
+    2. Check if texture/details are preserved
+    3. Adjust Detail up/down as needed
+    4. Preview again (2 more credits)
+    5. Repeat until satisfied
+
+    **Budget**: 4-6 credits in previews is normal for getting it right
+  </Step>
+
+  <Step title="Convert">
+    Once settings are dialed in, convert (10 credits).
+  </Step>
+
+  <Step title="Customize in Figma">
+    **Common edits for illustrations**:
+
+    1. **Recolor for brand**
+       - Enter SVG group
+       - Select shapes by color
+       - Apply design system colors
+
+    2. **Remove unwanted elements**
+       - Delete specific shapes
+       - Hide layers
+       - Modify paths
+
+    3. **Add to design system**
+       - Create component
+       - Make color variants
+       - Use as illustration library
+
+    
+  </Step>
+</Steps>
+
+### Illustration-Specific Tips
+
+<Tabs>
+  <Tab title="For UI Illustrations">
+    **Onboarding screens, empty states, etc.**:
+
+    - **Illustration** preset
+    - **Detail**: 40-50 (clean, simplified)
+    - **Colors**: 16-32 (matches design system better)
+    - Keep file size manageable for web
+
+    **Post-processing**:
+    - Match to brand colors immediately
+    - Create variants (success, error, loading)
+    - Export as components
+  </Tab>
+
+  <Tab title="For Marketing Graphics">
+    **Landing pages, social media, presentations**:
+
+    - **Illustration** preset
+    - **Detail**: 50-60 (preserve character)
+    - **Colors**: 32-64 (rich, vibrant)
+    - Higher quality acceptable (larger files ok)
+
+    **Post-processing**:
+    - Adjust composition in Figma
+    - Scale/rotate elements
+    - Combine with other graphics
+  </Tab>
+
+  <Tab title="For Infographic Elements">
+    **Charts, icons, data viz**:
+
+    - **Illustration** or **Logo** preset (depends on complexity)
+    - **Detail**: 30-40 (clean, readable)
+    - **Colors**: Match data viz palette (use Custom Palette)
+    - Consistency across all elements
+
+    **Post-processing**:
+    - Align and distribute
+    - Create master components
+    - Build chart templates
+  </Tab>
+</Tabs>
+
+---
+
+## Scenario 3: Hand-Drawn Sketch Vectorization
+
+**Goal**: Convert scanned drawing or photo of sketch to editable line art
+
+
+
+### Starting Point
+
+**Typical situation**:
+- Scanned pencil/ink drawing
+- Photo of whiteboard sketch
+- Paper texture visible
+- Want clean vector paths for further illustration
+
+### Recommended Workflow
+
+<Steps>
+  <Step title="Optimize the Scan/Photo">
+    **Critical for good results**:
+
+    1. **Increase contrast**
+       - In Figma: Effects → Adjust colors
+       - Make lines darker, background whiter
+       - Removes faint marks
+
+    2. **Crop and rotate**
+       - Straighten the sketch
+       - Crop to just the drawing
+       - Remove border/edges
+
+    3. **Clean up if needed**
+       - Erase stray marks in Figma
+       - Remove coffee stains, smudges
+       - Better input = better output
+
+    
+  </Step>
+
+  <Step title="Choose Settings">
+    **Recommended configuration**:
+
+    - **Preset**: Line Art
+    - **Quality**: High (precise line capture)
+    - **Detail**: 70 (preserve fine lines)
+    - **Colors**: 8 (mostly black/white)
+    - **Draw Style**: Stroke Shapes (automatic with Line Art)
+    - **Fill Gaps**: Disabled
+    - **Stroke Width**: 2.0-3.0px (match original line thickness)
+
+    **If losing fine lines**:
+    - Increase **Detail** to 80-90
+    - Increase **Quality** to Ultra
+    - Accept larger file size
+  </Step>
+
+  <Step title="Preview First">
+    Always preview scanned sketches:
+
+    1. Check if fine lines are captured
+    2. Verify paper texture is removed (not preserved as shapes)
+    3. Zoom in to inspect line quality
+
+    **Common issues**:
+    - Paper texture → Decrease Detail to 40-50
+    - Lines too thin → Increase Stroke Width
+    - Missing details → Increase Detail to 80
+  </Step>
+
+  <Step title="Convert">
+    Convert once settings are right (10 credits).
+  </Step>
+
+  <Step title="Post-Processing">
+    **Clean up the line art**:
+
+    1. **Adjust stroke width**
+       - Select all paths (`Cmd/Ctrl + A`)
+       - Change Stroke weight in properties
+       - Make uniform or varied
+
+    2. **Manual cleanup**
+       - Delete stray paths
+       - Connect broken lines
+       - Smooth rough sections
+
+    3. **Add colors** (if desired)
+       - Option 1: Outline Stroke → Fill shapes → Color
+       - Option 2: Add fills behind line art
+       - Option 3: Use as coloring page template
+
+    
+  </Step>
+</Steps>
+
+### Sketch-Specific Tips
+
+<AccordionGroup>
+  <Accordion title="For very rough/textured sketches" icon="scribble">
+    **Challenge**: Paper texture and noise
+
+    **Solution**:
+    - **Decrease Detail** to 30-40 (removes texture)
+    - **Increase contrast** before converting (makes lines stand out)
+    - **Accept some loss** of very faint lines
+    - **Manual touchup** after conversion
+
+    **Alternative**: Scan at higher contrast initially
+  </Accordion>
+
+  <Accordion title="For technical drawings/wireframes" icon="drafting-compass">
+    **Goal**: Precise, clean lines
+
+    **Settings**:
+    - **Line Art** preset
+    - **Quality**: Ultra (maximum precision)
+    - **Detail**: 60-70 (clean but accurate)
+    - **Stroke Width**: 1.0-1.5px (thin, technical)
+
+    **Post-processing**:
+    - Use Figma's line snapping
+    - Align to pixel grid
+    - Create isometric or technical views
+  </Accordion>
+
+  <Accordion title="Creating coloring pages" icon="paintbrush">
+    **Workflow**:
+
+    1. Vectorize with **Line Art** preset
+    2. **Stroke Width**: 3-4px (thick, kid-friendly)
+    3. **Export as SVG** or **PDF** for printing
+    4. Or: Outline Stroke → Fill with white → Share as Figma template
+
+    **Perfect for**: Illustrated coloring books, kids' activities
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Scenario 4: Photo to Vector Art
+
+**Goal**: Convert photo to artistic vector representation
+
+
+
+### Starting Point
+
+**Typical situation**:
+- Photograph (portrait, product, landscape)
+- Want poster/artistic effect
+- Not realistic reproduction
+
+<Warning>
+  **Important**: Vectorizing photos creates **artistic interpretation**, not photo-realistic reproduction. Manage expectations!
+</Warning>
+
+### Recommended Workflow
+
+<Steps>
+  <Step title="Prepare Photo">
+    **Pre-processing helps significantly**:
+
+    1. **Crop to subject**
+       - Remove background if possible
+       - Focus on main subject
+       - Simpler composition = better result
+
+    2. **Adjust exposure/contrast**
+       - Well-defined shapes vectorize better
+       - Avoid very dark or blown-out areas
+       - Increase contrast slightly
+
+    3. **Resize if huge**
+       - 2000-3000px max dimension
+       - Smaller = faster processing
+       - Quality won't improve past certain size
+  </Step>
+
+  <Step title="Start Conservative">
+    **Try Illustration preset first**:
+
+    - **Preset**: Illustration
+    - **Quality**: Standard
+    - **Detail**: 50
+    - **Colors**: 64
+    - **Preview** to see result (2 credits)
+
+    **Evaluate**:
+    - Too simplified? → Try High-Fidelity
+    - Acceptable? → Done! (save 10 credits vs High-Fidelity)
+  </Step>
+
+  <Step title="Upgrade if Needed">
+    **If Illustration loses too much**:
+
+    - **Preset**: High-Fidelity
+    - **Quality**: High or Ultra
+    - **Detail**: 80
+    - **Colors**: 256
+    - **Accept**: Larger file (1-2 MB), slower processing
+
+    **Preview first!** (2 credits) — High-Fidelity takes 60 seconds, don't convert blind
+  </Step>
+
+  <Step title="Convert">
+    Use whichever preset worked best in previews.
+  </Step>
+
+  <Step title="Post-Processing">
+    **Artistic adjustments**:
+
+    1. **Simplify if too complex**
+       - Right-click → Simplify
+       - Reduces paths
+       - Creates more "poster" effect
+
+    2. **Adjust colors**
+       - Increase saturation
+       - Apply color overlays
+       - Create duotone effect
+
+    3. **Add effects**
+       - Background blur
+       - Shadows
+       - Frames/borders
+
+    <Tip>
+      **Artistic approach**: Don't aim for photo realism. Embrace the vector aesthetic!
+    </Tip>
+  </Step>
+</Steps>
+
+### Photo-Specific Tips
+
+<Tabs>
+  <Tab title="Portraits">
+    **Challenges**: Skin tones, fine details (hair, eyes)
+
+    **Best approach**:
+    - **High-Fidelity** preset
+    - **Detail**: 70-80
+    - **Colors**: 256 (skin tone gradations)
+    - **Simplify after** for artistic effect
+
+    **Alternative**: Use **Illustration** for stylized/cartoon effect
+  </Tab>
+
+  <Tab title="Products">
+    **Goal**: Clean product shot for marketing
+
+    **Settings**:
+    - **Illustration** or **High-Fidelity**
+    - **Detail**: 60-70
+    - **Colors**: 64-256 (depends on product)
+    - **Remove background** before converting
+
+    **Post-processing**:
+    - Add drop shadow in Figma
+    - Place on colored background
+    - Create variations (colors/angles)
+  </Tab>
+
+  <Tab title="Landscapes/Scenes">
+    **Complex challenge**:
+
+    - **High-Fidelity** required
+    - **Detail**: 80
+    - **Colors**: 256 or Unlimited
+    - **Long processing** time (60-90 seconds)
+    - **Large files** (1-3 MB)
+
+    **Consider**: Is vectorization necessary? Photos may be better as photos.
+
+    **Use case**: Stylized backgrounds, poster art
+  </Tab>
+</Tabs>
+
+### When NOT to Vectorize Photos
+
+<Warning>
+  **Photos are often better left as photos**:
+
+  - Realistic product photography
+  - Portraits for documentation
+  - Detailed textures (wood, fabric)
+  - Web hero images (use WebP instead)
+
+  **Vectorize photos only for**: Artistic effects, posters, stylized graphics
+</Warning>
+
+---
+
+## General Best Practices
+
+<AccordionGroup>
+  <Accordion title="Always start with higher quality source" icon="image">
+    **Input quality determines output quality**:
+
+    | Source Quality | Max Output Quality |
+    |---------------|-------------------|
+    | 4K+ image | Excellent |
+    | 1920-2000px | Very good |
+    | 800-1500px | Good |
+    | 300-800px | Fair |
+    | Under 300px | Poor |
+
+    **Rule**: Garbage in, garbage out. Get the best source possible.
+  </Accordion>
+
+  <Accordion title="Use HD Preview liberally" icon="eye">
+    **Preview is cheap insurance**:
+
+    - **Cost**: 2 credits (vs 10 for conversion)
+    - **Value**: Avoid wasting 10 credits on bad settings
+    - **Math**: 3 previews (6 credits) + 1 convert (10) = 16 total
+      - vs: 2 bad converts (20) = waste 4 credits
+
+    **Don't skip preview** on unfamiliar image types!
+  </Accordion>
+
+  <Accordion title="Match settings to end use" icon="target">
+    **Optimize for your actual need**:
+
+    | Use Case | Recommended Settings |
+    |----------|---------------------|
+    | Web icon (64px) | Logo preset, Standard quality |
+    | UI graphic (500px) | Illustration, Standard |
+    | Print poster | Illustration/High-Fidelity, High quality |
+    | Large format | High-Fidelity, Ultra quality |
+
+    Don't use Ultra quality for a 64px icon!
+  </Accordion>
+
+  <Accordion title="Embrace Figma's post-processing" icon="wand-magic">
+    **Plugin gets you 90% there, Figma finishes it**:
+
+    **Common Figma touchups**:
+    - Flatten shapes
+    - Simplify paths
+    - Boolean operations
+    - Manual recoloring
+    - Component creation
+
+    **Don't obsess** over perfection in plugin — finish in Figma!
+  </Accordion>
+
+  <Accordion title="Build a settings library" icon="book">
+    **Document what works**:
+
+    1. Screenshot successful settings
+    2. Note image type and settings used
+    3. Record file size and quality results
+    4. Build internal playbook
+
+    **Example doc**:
+    ```
+    Company Logos:
+    - Preset: Logo
+    - Detail: 25
+    - Colors: 16
+    - Results: 15-40 KB, clean edges
+    ```
+  </Accordion>
+
+  <Accordion title="Batch similar images with same settings" icon="layer-group">
+    **Efficiency workflow**:
+
+    1. Find optimal settings for first image (use Preview)
+    2. Write down the settings
+    3. Apply to all similar images (skip Preview)
+    4. Convert batch
+
+    **Example**: 20 team headshots → test 1, apply to all 20
+
+    **Savings**: Massive time and credit savings
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Optimization Checklist
+
+Before converting, ask yourself:
+
+<Card>
+  <Checklist>
+    - [ ] Is source image high enough resolution?
+    - [ ] Did I remove unnecessary background?
+    - [ ] Did I crop tightly to subject?
+    - [ ] Have I increased contrast if needed (for sketches)?
+    - [ ] Did I choose appropriate preset for image type?
+    - [ ] Will I use HD Preview to test settings?
+    - [ ] Do I know my target use case (web/print)?
+    - [ ] Have I read relevant scenario in this guide?
+  </Checklist>
+</Card>
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Core Settings Deep Dive"
+    icon="sliders"
+    href="/user-guide/core-settings"
+  >
+    Master Quality, Detail, Colors, and Style parameters
+  </Card>
+
+  <Card
+    title="Troubleshooting Guide"
+    icon="wrench"
+    href="/support/troubleshooting"
+  >
+    Fix issues and optimize problematic conversions
+  </Card>
+</CardGroup>

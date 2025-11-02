@@ -1,0 +1,649 @@
+---
+title: Advanced Features
+description: Master custom palettes, stroke width adjustment, and power-user techniques for optimal vectorization results.
+keywords: custom palette vectorizer, advanced vectorization, stroke width figma, vectorizer pro tips
+---
+
+
+
+## Advanced Features Overview
+
+Advanced features give **power users** fine-grained control beyond presets and core settings. Most users won't need these, but they unlock powerful workflows for specific use cases.
+
+<Warning>
+  **Note**: These are truly "advanced" features. If you're new to the plugin, master [presets](/user-guide/understanding-presets) and [core settings](/user-guide/core-settings) first!
+</Warning>
+
+---
+
+## Custom Palette
+
+**Force vectorization to use only specific colors**
+
+
+
+### What Custom Palette Does
+
+Custom Palette restricts the output SVG to **only use colors you specify**. The AI will map all colors in your original image to the nearest color in your palette.
+
+<CardGroup cols={2}>
+  <Card title="Use Case" icon="palette">
+    **Brand color compliance**
+
+    Ensure output only uses official brand colors from your design system
+  </Card>
+
+  <Card title="Limitation" icon="triangle-exclamation">
+    **May change appearance**
+
+    Original colors will be mapped to closest palette color (can look different)
+  </Card>
+</CardGroup>
+
+### When to Use Custom Palette
+
+<Tabs>
+  <Tab title="✅ Good Use Cases">
+    **1. Brand Color Enforcement**
+    - Converting logo to match brand guidelines
+    - Design system with strict color palette
+    - Corporate identity compliance
+
+    **Example**: Your brand uses `#FF5733`, `#3498DB`, `#2ECC71`. Force all output colors to these three.
+
+    **2. Simplifying Color Management**
+    - Limit to 3-5 colors for easier editing
+    - Create consistent style across multiple images
+    - Batch vectorization with same palette
+
+    **Example**: Vectorize 10 illustrations, all use same 5-color palette.
+
+    **3. Color Correction**
+    - Original has color drift (photos)
+    - Standardize slightly different shades
+    - Lock to specific print colors (Pantone)
+
+    **Example**: Multiple logos with slight color variations → standardize to exact brand colors.
+  </Tab>
+
+  <Tab title="❌ Not Recommended For">
+    **1. Complex Illustrations**
+    - Too many subtle color variations
+    - Gradients and shading
+    - Photos or realistic images
+
+    **Why**: Forcing to limited palette ruins quality
+
+    **2. First Conversion Attempt**
+    - Don't know what colors are needed yet
+    - Better to see natural result first
+    - Can always reconvert with palette
+
+    **Why**: See original conversion first, then decide palette
+
+    **3. When Figma Recoloring is Easier**
+    - Small number of colors
+    - Easy to recolor in Figma after
+    - More flexible workflow
+
+    **Why**: Manual recoloring gives you more control
+  </Tab>
+</Tabs>
+
+### How to Use Custom Palette
+
+<Steps>
+  <Step title="Expand Advanced Section">
+
+    Click the **"Advanced"** section header in settings to expand it.
+  </Step>
+
+  <Step title="Enter HEX Color">
+
+    1. Type or paste HEX color code in the input (e.g., `#FF5733`)
+    2. Must be valid 6-digit HEX format
+    3. Click **"Add"** button
+
+    **Format requirements**:
+    - ✅ `#FF5733` (correct)
+    - ✅ `#ff5733` (lowercase ok)
+    - ❌ `FF5733` (missing #)
+    - ❌ `#F73` (shorthand not supported)
+    - ❌ `rgb(255, 87, 51)` (not HEX)
+  </Step>
+
+  <Step title="Add Multiple Colors">
+
+    Repeat for each color in your palette. You can add:
+    - **Minimum**: 2 colors
+    - **Recommended**: 4-8 colors
+    - **Maximum**: No limit (but diminishing returns)
+
+    **Each color appears as a chip** showing:
+    - Color swatch preview
+    - HEX code
+    - "×" to remove
+  </Step>
+
+  <Step title="Remove Colors (Optional)">
+    Click the **"×"** on any color chip to remove it from the palette.
+
+    Useful for experimenting with different combinations.
+  </Step>
+
+  <Step title="Preview with Palette">
+    Click **HD Preview** (2 credits) to see how your image looks with the restricted palette.
+
+    **Important**: Preview before full conversion! Palette can dramatically change appearance.
+  </Step>
+
+  <Step title="Adjust if Needed">
+    If preview doesn't look good:
+    - Add more colors to the palette
+    - Change specific colors
+    - Remove palette entirely (clear all colors)
+    - Try different core settings
+
+    Preview again to compare (2 credits each).
+  </Step>
+</Steps>
+
+### Custom Palette Tips
+
+<AccordionGroup>
+  <Accordion title="Start with more colors, reduce later" icon="arrow-down">
+    **Best workflow**:
+
+    1. First conversion: Use **no palette** (see natural colors)
+    2. Examine what colors are actually used
+    3. Extract 4-8 main colors
+    4. Reconvert with those colors as palette
+    5. Iterate if needed
+
+    **Why**: You need to see what colors exist first!
+  </Accordion>
+
+  <Accordion title="Use eyedropper to extract colors" icon="eyedropper">
+    **Get colors from original image**:
+
+    1. Select your original image in Figma
+    2. Use eyedropper tool on main colors
+    3. Copy HEX codes from fill panel
+    4. Paste into Custom Palette input
+
+    **Tip**: Focus on the 5-10 most prominent colors
+  </Accordion>
+
+  <Accordion title="How many colors do you need?" icon="question">
+    **Color count recommendations**:
+
+    | Image Type | Recommended Palette Size |
+    |------------|-------------------------|
+    | Simple logo | 2-4 colors |
+    | Brand identity | 3-6 colors (brand palette) |
+    | Flat illustration | 6-10 colors |
+    | Complex artwork | Don't use palette (too limiting) |
+
+    **Rule of thumb**: If you need more than 10 colors, palette probably isn't the right tool.
+  </Accordion>
+
+  <Accordion title="Combine with Colors setting" icon="sliders">
+    **Custom Palette vs Colors setting**:
+
+    - **Colors setting**: Limits total number of colors (AI picks which ones)
+    - **Custom Palette**: Forces specific colors (you choose which ones)
+
+    **Can use together**:
+    - Set Colors to 16
+    - Add 5 colors to Custom Palette
+    - Output will use those 5 colors, but not exceed 16 total (including shades)
+
+    **Typical workflow**: Use palette alone, ignore Colors setting
+  </Accordion>
+
+  <Accordion title="Palette affects processing time" icon="clock">
+    **Performance impact**:
+
+    - Small palette (2-5 colors): Slightly faster processing
+    - Large palette (20+ colors): Slightly slower
+    - Difference is minimal (1-3 seconds)
+
+    **Not a performance optimization tool** — use for color control only.
+  </Accordion>
+</AccordionGroup>
+
+### Common Custom Palette Scenarios
+
+<Tabs>
+  <Tab title="Scenario 1: Brand Compliance">
+    **Situation**: Client logo in wrong colors, need exact brand colors
+
+    **Original**: Logo downloaded from website, colors are `#E84C3D` (close to brand red)
+
+    **Brand Color**: `#FF0000` (official red)
+
+    **Solution**:
+    1. Add brand colors to palette: `#FF0000`, `#FFFFFF`, `#000000`
+    2. Preview conversion
+    3. Logo now uses exact brand colors
+    4. Submit to client with confidence!
+
+    
+  </Tab>
+
+  <Tab title="Scenario 2: Design System Colors">
+    **Situation**: Vectorizing multiple illustrations for design system
+
+    **Goal**: All illustrations use same color palette for consistency
+
+    **Design System Colors**:
+    - Primary: `#3B82F6`
+    - Secondary: `#10B981`
+    - Accent: `#F59E0B`
+    - Text: `#1F2937`
+    - Background: `#F3F4F6`
+
+    **Solution**:
+    1. Add all 5 colors to Custom Palette
+    2. Use for all illustration conversions
+    3. Consistent color scheme across assets
+    4. Easy to update later (global color styles)
+
+    
+  </Tab>
+
+  <Tab title="Scenario 3: Print Color Matching">
+    **Situation**: Converting illustrations for print, need specific Pantone colors
+
+    **Goal**: Match print shop's Pantone color requirements
+
+    **Pantone Colors** (converted to HEX):
+    - Pantone 185 C: `#E4002B`
+    - Pantone 301 C: `#005EB8`
+    - Pantone 116 C: `#FFCD00`
+
+    **Solution**:
+    1. Convert Pantone to HEX (use online converter)
+    2. Add to Custom Palette
+    3. Vectorize with palette
+    4. Export SVG for print production
+
+    **Note**: HEX approximation of Pantone, print shop will apply actual Pantone inks
+  </Tab>
+</Tabs>
+
+### Custom Palette Limitations
+
+<Warning>
+  **Important limitations to understand**:
+
+  1. **Colors may look different**: Forcing colors can change image appearance significantly
+  2. **Loss of subtle variations**: Gradients and shading will be posterized
+  3. **Not a replacement for recoloring**: Often easier to recolor in Figma after conversion
+  4. **Requires color knowledge**: Need to know exact colors you want upfront
+  5. **Can't undo after conversion**: Must reconvert if palette is wrong
+
+  **Recommendation**: Use sparingly and always preview first!
+</Warning>
+
+---
+
+## Stroke Width (Line Art Mode)
+
+**Adjust line thickness for stroke-based output**
+
+
+
+### What Stroke Width Controls
+
+When using **Line Art preset** or manually selecting **"Stroke Shapes"** draw style, this setting controls the thickness of the stroke paths.
+
+**Technical**: Sets the `stroke-width` attribute in the SVG (0.5-10px)
+
+<Note>
+  **Only available when**:
+  - Draw Style is set to "Stroke Shapes" or "Stroke Edges"
+  - Line Art preset is selected (automatically uses Stroke)
+</Note>
+
+### Stroke Width Settings
+
+<Tabs>
+  <Tab title="Thin (0.5-1.5px)">
+    **Best for**:
+    - Fine line work
+    - Detailed sketches
+    - Technical drawings
+    - Delicate illustrations
+
+    **Appearance**:
+    - Very thin, precise lines
+    - Good for intricate details
+    - May be hard to see at small sizes
+
+    
+  </Tab>
+
+  <Tab title="Medium (2.0-4.0px)">
+    ⭐ **Default: 2.0px**
+
+    **Best for**:
+    - Most hand-drawn sketches
+    - General line art
+    - Coloring pages
+    - Standard illustrations
+
+    **Appearance**:
+    - Visible and clear
+    - Balanced thickness
+    - Works at most sizes
+
+    **Recommended starting point**
+
+    
+  </Tab>
+
+  <Tab title="Thick (4.0-10.0px)">
+    **Best for**:
+    - Bold artwork
+    - Comics/manga style
+    - High contrast
+    - Marker/brush drawings
+
+    **Appearance**:
+    - Heavy, prominent lines
+    - Strong visual impact
+    - Good for small display sizes
+
+    
+  </Tab>
+</Tabs>
+
+### Adjusting Stroke Width
+
+<Steps>
+  <Step title="Select Line Art Preset or Stroke Style">
+    **Option 1**: Choose **Line Art** preset (automatically uses Stroke Shapes)
+
+    **Option 2**: Any preset + manually set Draw Style to "Stroke Shapes"
+  </Step>
+
+  <Step title="Expand Advanced Section">
+    Stroke Width setting appears in Advanced when Stroke is active.
+  </Step>
+
+  <Step title="Adjust Slider">
+
+    - **Range**: 0.5px - 10.0px
+    - **Default**: 2.0px
+    - **Increment**: 0.5px steps
+
+    Move slider or type exact value.
+  </Step>
+
+  <Step title="Preview Result">
+    Use HD Preview (2 credits) to see how the stroke width looks.
+
+    **Check**:
+    - Are lines too thin/thick?
+    - Appropriate for your use case?
+    - Visible at target size?
+  </Step>
+</Steps>
+
+### Stroke Width Tips
+
+<AccordionGroup>
+  <Accordion title="You can adjust stroke width AFTER converting!" icon="wand-magic">
+    **Big advantage of stroke-based output**:
+
+    After vectorizing in Figma:
+    1. Select all paths (`Cmd/Ctrl + A`)
+    2. Change **Stroke** weight in properties panel
+    3. Make lines thicker or thinner
+    4. **No need to reconvert!**
+
+    **This is why Stroke Width setting isn't critical** — you can change it later for free.
+  </Accordion>
+
+  <Accordion title="Match original line thickness" icon="ruler">
+    **Best practice**:
+
+    1. Zoom in on original image
+    2. Estimate average line thickness (in pixels)
+    3. Set Stroke Width to similar value
+    4. Preview to verify
+
+    **Example**: Original sketch has ~3px lines → set Stroke Width to 3.0
+  </Accordion>
+
+  <Accordion title="Consider target display size" icon="mobile">
+    **Stroke width affects readability at different sizes**:
+
+    | Display Size | Recommended Stroke |
+    |-------------|-------------------|
+    | Small icon (64px) | 3-5px (thicker) |
+    | Medium graphic (500px) | 2-3px (standard) |
+    | Large illustration (2000px) | 1-2px (thinner) |
+
+    Thicker strokes for smaller displays!
+  </Accordion>
+
+  <Accordion title="Convert strokes to fills if needed" icon="fill">
+    **After converting, you can solidify strokes**:
+
+    1. Select stroke-based SVG
+    2. Right-click → **Outline Stroke**
+    3. Strokes become filled shapes
+    4. Now you can fill with colors!
+
+    **Use case**: Line art → Outline Stroke → Manual coloring
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## HD Preview vs Full Conversion
+
+**Strategic use of preview mode**
+
+### Cost Breakdown
+
+| Mode | Credits | Output | Use For |
+|------|---------|--------|---------|
+| **HD Preview** | 2 | PNG with watermark | Testing settings |
+| **Convert to SVG** | 10 | Clean SVG | Final output |
+
+**Cost ratio**: Preview is **5x cheaper** than conversion!
+
+### HD Preview Strategy
+
+<Tabs>
+  <Tab title="Use Preview When...">
+    **1. Testing New Preset**
+    - First time using a preset on this type of image
+    - Want to compare multiple presets
+    - Costs only 2 credits per test
+
+    **Workflow**:
+    1. Try Logo preset → Preview (2 credits)
+    2. Try Illustration preset → Preview (2 credits)
+    3. Pick best one → Convert (10 credits)
+    4. **Total**: 14 credits vs 30 credits if you converted all three
+
+    **2. Adjusting Parameters**
+    - Tweaking Quality/Detail/Colors
+    - Finding optimal settings
+    - Iterative optimization
+
+    **Workflow**:
+    1. Start with Detail 50 → Preview (2 credits)
+    2. Too noisy, try Detail 30 → Preview (2 credits)
+    3. Perfect → Convert (10 credits)
+    4. **Total**: 14 credits vs 30 credits
+
+    **3. Unfamiliar Image Type**
+    - Never converted this kind of image before
+    - Complex or unusual source
+    - Want to see what works
+
+    **Workflow**: Preview multiple approaches cheaply before committing
+
+    **4. Client/Team Review**
+    - Need approval before final conversion
+    - Show preview to stakeholders
+    - Avoid reconversion costs
+  </Tab>
+
+  <Tab title="Skip Preview When...">
+    **1. Familiar Workflow**
+    - You've done this type of conversion many times
+    - Confident in preset choice
+    - Know exactly what settings to use
+
+    **Example**: Converting 10 similar logos → first one preview, rest direct convert
+
+    **2. Simple Images**
+    - Logo with clean source
+    - Obvious preset choice
+    - Low risk of issues
+
+    **Example**: High-quality logo PNG → Logo preset → Direct convert
+
+    **3. Time-Sensitive**
+    - Need quick results
+    - Okay with potential reconversion
+    - Value speed over credit savings
+
+    **Math**: Preview (2) + Convert (10) = 12 credits vs Direct (10) + Redo (10) = 20 credits if wrong
+  </Tab>
+</Tabs>
+
+### Preview Mode Features
+
+**What you can do in HD Preview modal**:
+
+<CardGroup cols={2}>
+  <Card title="Zoom & Pan" icon="magnifying-glass">
+    - Zoom up to 400%
+    - Pan around image
+    - Inspect fine details
+    - Check edge quality
+  </Card>
+
+  <Card title="Side-by-Side Comparison" icon="arrows-left-right">
+    - Compare slider
+    - Original vs vectorized
+    - See exactly what changed
+    - Verify quality
+  </Card>
+
+  <Card title="Direct Convert" icon="check">
+    - "Convert" button in modal
+    - If satisfied, convert immediately
+    - No need to close and click again
+    - Seamless workflow
+  </Card>
+
+  <Card title="Close & Adjust" icon="sliders">
+    - Close modal
+    - Adjust settings
+    - Preview again
+    - Iterate cheaply
+  </Card>
+</CardGroup>
+
+---
+
+## Power User Tips
+
+<AccordionGroup>
+  <Accordion title="Create Preset Variations" icon="copy">
+    **Build your own mini-presets**:
+
+    1. Start with Illustration preset
+    2. Adjust Quality to High
+    3. Set Detail to 40
+    4. Use this for specific image type
+    5. Remember these settings for future
+
+    **Example custom presets**:
+    - "Web Icons": Illustration + Detail 30 + 16 colors
+    - "Print Graphics": Illustration + Quality High + Detail 60
+    - "Clean Logos": Logo + Detail 20 + 8 colors
+  </Accordion>
+
+  <Accordion title="Batch Similar Images" icon="layer-group">
+    **Efficient workflow for multiple images**:
+
+    1. Test settings on first image (use Preview)
+    2. Find optimal configuration
+    3. **Write down the settings** (screenshot or note)
+    4. Apply same settings to all similar images
+    5. Direct convert (skip preview) for rest
+
+    **Example**: Converting 20 team headshots → test 1, apply to all 20
+
+    **Savings**: 2 preview + 20 convert = 22 credits vs 40 credits (preview each)
+  </Accordion>
+
+  <Accordion title="Use Figma's Post-Processing" icon="wand-sparkles">
+    **Don't over-optimize in plugin**:
+
+    Convert with good settings, then:
+    - **Simplify** paths in Figma (reduce complexity)
+    - **Flatten** overlapping shapes
+    - **Boolean operations** to merge/subtract
+    - **Manual recolor** (often easier than Custom Palette)
+
+    **Philosophy**: Get 90% there with plugin, polish 10% in Figma
+  </Accordion>
+
+  <Accordion title="Save Original Next to Result" icon="clone">
+    **Best practice for comparison**:
+
+    1. Convert image → SVG appears next to original
+    2. **Don't delete original** immediately
+    3. Put both in a frame
+    4. Name frame "Logo Conversion - [Date]"
+    5. Keep for reference
+
+    **Benefits**:
+    - Easy to compare
+    - Can reconvert if needed
+    - Version history
+  </Accordion>
+
+  <Accordion title="Export Settings for Documentation" icon="file-export">
+    **Create documentation for your team**:
+
+    1. Screenshot plugin settings panel
+    2. Annotate which settings were used
+    3. Note results (file size, quality)
+    4. Build internal guide
+
+    **Example**: "Team Headshots: Illustration preset, Detail 45, 32 colors = best results"
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Best Practices"
+    icon="star"
+    href="/user-guide/best-practices"
+  >
+    Real-world workflows for logos, illustrations, and more
+  </Card>
+
+  <Card
+    title="Troubleshooting"
+    icon="wrench"
+    href="/support/troubleshooting"
+  >
+    Fix common issues and optimize results
+  </Card>
+</CardGroup>

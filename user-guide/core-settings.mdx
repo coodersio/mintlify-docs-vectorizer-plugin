@@ -1,0 +1,1110 @@
+---
+title: Core Settings
+description: Master Quality, Detail, Colors, Draw Style, and Fill Gaps settings. Understand how each parameter affects your vectorization results.
+keywords: vectorizer settings, quality settings, detail parameter, color quantization, draw style figma
+---
+
+
+## Understanding Core Settings
+
+Core settings give you **professional-level control** over how your images are vectorized. While [presets](/user-guide/understanding-presets) are great starting points, mastering these settings lets you optimize for any image.
+
+<Note>
+  **New to settings?** Don't be intimidated! Start with a preset, use HD Preview (2 credits) to test changes, and adjust one setting at a time.
+</Note>
+
+---
+
+## Quality
+
+**Controls**: Curve precision and smoothness
+
+
+### What Quality Does
+
+Quality determines how accurately vector curves match your original image. Think of it as the **"smoothness vs precision"** slider.
+
+<CardGroup cols={2}>
+  <Card title="Higher Quality" icon="gem" color="#16A34A">
+    **More precise curves**
+    - Tighter curve fitting
+    - Smoother edges when zoomed
+    - Larger file sizes
+    - Slower processing
+  </Card>
+
+  <Card title="Lower Quality" icon="bolt" color="#3B82F6">
+    **Faster processing**
+    - Looser curve fitting
+    - May show stair-stepping
+    - Smaller file sizes
+    - Quick results
+  </Card>
+</CardGroup>
+
+### Quality Levels
+
+<Tabs>
+  <Tab title="Draft">
+    **Technical**: `line_fit_tolerance = 0.5`
+
+    **Best for**:
+    - Quick testing and previews
+    - Roughing out ideas
+    - Temporary placeholders
+    - Speed over quality
+
+    **Characteristics**:
+    - ⚡ Fastest processing (3-5 seconds)
+    - 📦 Smallest file sizes
+    - 🔍 Noticeable imperfections when zoomed
+    - 🎯 Not recommended for final output
+
+    
+  </Tab>
+
+  <Tab title="Standard">
+    **Technical**: `line_fit_tolerance = 0.1`
+
+    ⭐ **Recommended for most users**
+
+    **Best for**:
+    - Daily design work
+    - Web graphics
+    - UI components
+    - General purpose vectorization
+
+    **Characteristics**:
+    - ⚡ Good speed (5-15 seconds)
+    - 📦 Reasonable file sizes (50-200 KB)
+    - 🔍 Clean results at normal viewing
+    - 🎯 Sweet spot for 90% of use cases
+
+    
+  </Tab>
+
+  <Tab title="High">
+    **Technical**: `line_fit_tolerance = 0.05`
+
+    **Best for**:
+    - Print materials
+    - Large displays
+    - Professional presentations
+    - Client deliverables
+
+    **Characteristics**:
+    - ⏱️ Moderate speed (15-30 seconds)
+    - 📦 Larger files (200-500 KB)
+    - 🔍 Very smooth at high zoom
+    - 🎯 Recommended for final production
+
+    
+  </Tab>
+
+  <Tab title="Ultra">
+    **Technical**: `line_fit_tolerance = 0.01`
+
+    **Best for**:
+    - Maximum precision needs
+    - Artistic work
+    - Extreme zoom scenarios
+    - Archival quality
+
+    **Characteristics**:
+    - 🐢 Slowest processing (30-60 seconds)
+    - 📦 Largest files (500 KB - 2 MB)
+    - 🔍 Perfect curves at any zoom
+    - 🎯 Overkill for most projects
+
+    <Warning>
+      **Trade-off**: Ultra takes 3-6x longer than Standard with only marginal visual improvement. Use sparingly!
+    </Warning>
+
+    
+  </Tab>
+</Tabs>
+
+### Quality Comparison Table
+
+| Quality | Tolerance | Speed | File Size | Use Case |
+|---------|-----------|-------|-----------|----------|
+| **Draft** | 0.5 | ⚡⚡⚡⚡⚡ | 📦 Tiny | Testing only |
+| **Standard** ⭐ | 0.1 | ⚡⚡⚡⚡ | 📦📦 Small | Daily work |
+| **High** | 0.05 | ⚡⚡⚡ | 📦📦📦 Medium | Print/pro |
+| **Ultra** | 0.01 | ⚡ | 📦📦📦📦 Large | Archival |
+
+### When to Adjust Quality
+
+<AccordionGroup>
+  <Accordion title="Increase Quality when..." icon="arrow-up">
+    **Symptoms**:
+    - Edges look blocky/jagged
+    - "Stair-stepping" visible on curves
+    - Zooming in reveals roughness
+    - Curves don't feel smooth
+
+    **Solution**:
+    1. Move Quality slider to **High** or **Ultra**
+    2. Use HD Preview to compare (2 credits)
+    3. Convert when satisfied
+
+    **Visual check**: Zoom to 400% in Figma and inspect curves
+  </Accordion>
+
+  <Accordion title="Decrease Quality when..." icon="arrow-down">
+    **Symptoms**:
+    - File size too large (>1 MB)
+    - Processing taking too long (>60 seconds)
+    - Need faster iterations
+    - Standard quality looks good enough
+
+    **Solution**:
+    1. Move Quality slider to **Standard** or **Draft**
+    2. Check if quality is still acceptable
+    3. Faster processing = more experimentation
+
+    **Remember**: Standard quality is excellent for 90% of use cases!
+  </Accordion>
+</AccordionGroup>
+
+### Quality Tips
+
+<Tabs>
+  <Tab title="💡 Start with Standard">
+    **Best practice workflow**:
+
+    1. Always begin with **Standard** quality
+    2. Preview the result (2 credits)
+    3. Only increase if edges look rough
+    4. Save Ultra for special cases
+
+    **Why**: Standard is fast and good enough 90% of the time. Don't over-optimize!
+  </Tab>
+
+  <Tab title="🎯 Match Output to Use">
+    **Use case guide**:
+
+    | Output | Recommended Quality |
+    |--------|---------------------|
+    | Web graphics | Standard |
+    | Mobile apps | Standard |
+    | Desktop apps | Standard or High |
+    | Print (300 DPI) | High |
+    | Large format | High or Ultra |
+    | Archival | Ultra |
+
+    Don't use Ultra for web—waste of time and file size!
+  </Tab>
+
+  <Tab title="🔍 Test at Target Scale">
+    **Important**: Preview at the size you'll actually use!
+
+    - Web icon (64px) → Standard is plenty
+    - Hero image (1920px) → High might help
+    - Billboard → Ultra might be worth it
+
+    Zoom to your target scale in Figma before deciding.
+  </Tab>
+</Tabs>
+
+---
+
+## Detail
+
+**Controls**: How small of details are preserved (noise filtering)
+
+
+
+### What Detail Does
+
+Detail controls the **minimum size of shapes** that are kept in the output. Lower detail = more aggressive noise removal. Higher detail = preserve smaller features.
+
+<CardGroup cols={2}>
+  <Card title="Higher Detail (70-100)" icon="magnifying-glass-plus">
+    **Preserve small features**
+    - Keeps fine details
+    - More complex output
+    - Larger file sizes
+    - May include noise/artifacts
+  </Card>
+
+  <Card title="Lower Detail (0-30)" icon="broom">
+    **Aggressive cleanup**
+    - Removes noise and artifacts
+    - Simpler, cleaner output
+    - Smaller file sizes
+    - May lose important details
+  </Card>
+</CardGroup>
+
+### How Detail Mapping Works
+
+**Technical**: Detail slider (0-100) maps to `min_area_px` (5.0-0.5)
+
+```
+Detail 0   → min_area_px 5.0  (remove shapes < 5px²)
+Detail 50  → min_area_px 2.75 (remove shapes < 2.75px²)
+Detail 100 → min_area_px 0.5  (keep almost everything)
+```
+
+**In plain English**: The slider tells the AI "ignore anything smaller than X pixels"
+
+### Detail Level Guide
+
+<Tabs>
+  <Tab title="Low Detail (0-30)">
+    **Best for**:
+    - Simple logos
+    - Icons with few colors
+    - Cleaning up noisy JPEGs
+    - Removing compression artifacts
+
+    **What it does**:
+    - Removes dots, specks, noise
+    - Simplifies complex areas
+    - Produces clean, minimal vectors
+    - Great for logos!
+
+    **Examples**:
+    - Company logo from website (JPG artifacts) → Detail 20
+    - App icon with solid colors → Detail 25
+    - Badge with clean shapes → Detail 30
+
+    
+  </Tab>
+
+  <Tab title="Medium-Low Detail (30-50)">
+    **Best for**:
+    - Flat illustrations with moderate features
+    - UI graphics
+    - Most general-purpose images
+
+    **What it does**:
+    - Balanced noise removal
+    - Keeps important features
+    - Removes obvious artifacts
+    - Default for most presets
+
+    **Examples**:
+    - Flat illustration with some texture → Detail 40
+    - Marketing graphic → Detail 45
+    - Standard icon set → Detail 35
+
+    
+  </Tab>
+
+  <Tab title="Medium Detail (50-70)">
+    ⭐ **Illustration preset default (50)**
+
+    **Best for**:
+    - Detailed illustrations
+    - Images with important fine features
+    - Textured graphics
+    - Most complex images
+
+    **What it does**:
+    - Preserves most details
+    - Light noise filtering
+    - Balanced approach
+    - Works for wide range of images
+
+    **Examples**:
+    - Complex flat illustration → Detail 55
+    - Textured pattern → Detail 60
+    - Detailed UI element → Detail 65
+
+    
+  </Tab>
+
+  <Tab title="High Detail (70-100)">
+    **Best for**:
+    - Hand-drawn sketches
+    - Fine line work
+    - Complex artistic pieces
+    - Maximum fidelity needed
+
+    **What it does**:
+    - Keeps almost everything
+    - Minimal noise removal
+    - Very complex output
+    - May include JPG artifacts
+
+    **Examples**:
+    - Pencil sketch with fine lines → Detail 75
+    - Detailed artwork → Detail 80
+    - Complex pattern with fine elements → Detail 90
+
+    <Warning>
+      **Watch out**: Detail above 80 may preserve JPG compression artifacts as shapes! Use with clean, high-quality originals only.
+    </Warning>
+
+    
+  </Tab>
+</Tabs>
+
+### When to Adjust Detail
+
+<AccordionGroup>
+  <Accordion title="Increase Detail when..." icon="arrow-up">
+    **Symptoms**:
+    - Important features are missing
+    - Fine lines disappeared
+    - Texture is oversimplified
+    - Output looks too "clean"
+
+    **Solution**:
+    1. Move Detail slider **right** (toward "More")
+    2. Try Detail value of **60-75**
+    3. Preview to verify (2 credits)
+    4. Increase more if needed
+
+    **Example**: Scanned sketch losing pencil strokes → increase to 70-80
+  </Accordion>
+
+  <Accordion title="Decrease Detail when..." icon="arrow-down">
+    **Symptoms**:
+    - Too many tiny dots/specs
+    - JPG compression artifacts visible as shapes
+    - File size too large
+    - Output looks "noisy"
+
+    **Solution**:
+    1. Move Detail slider **left** (toward "Less")
+    2. Try Detail value of **30-40**
+    3. Preview to verify
+    4. Decrease more if needed
+
+    **Example**: Logo from website has JPG noise → decrease to 25-30
+  </Accordion>
+</AccordionGroup>
+
+### Detail Tips
+
+<Tabs>
+  <Tab title="🎯 Start at 50, Adjust">
+    **Recommended workflow**:
+
+    1. Start with Detail at **50** (Illustration default)
+    2. Preview result
+    3. **If too noisy** → decrease to 30-40
+    4. **If missing details** → increase to 60-70
+    5. Iterate with cheap previews!
+
+    Most images land between 30-70.
+  </Tab>
+
+  <Tab title="🧹 Clean Source = Higher Detail">
+    **Image quality matters**:
+
+    | Source Quality | Recommended Detail |
+    |----------------|-------------------|
+    | Clean vector export | 70-80 |
+    | High-quality PNG | 60-70 |
+    | Standard web image | 40-50 |
+    | Compressed JPEG | 20-30 |
+    | Screenshot/scan | 15-25 |
+
+    Lower detail for lower quality sources!
+  </Tab>
+
+  <Tab title="📏 Consider Scale">
+    **Size affects detail perception**:
+
+    - **Small icons** (64-128px): Detail 20-40 (noise more visible)
+    - **Medium graphics** (500-1000px): Detail 40-60
+    - **Large images** (2000px+): Detail 60-80 (can preserve more)
+
+    Smaller outputs need more aggressive cleanup.
+  </Tab>
+
+  <Tab title="🔬 Zoom to Check">
+    **How to verify Detail setting**:
+
+    1. Preview your conversion
+    2. Zoom to **400%** in the preview modal
+    3. Look for:
+       - ✅ Important features preserved?
+       - ❌ Tiny noise dots present?
+       - ❌ Compression artifacts?
+    4. Adjust and preview again
+
+    Don't judge at 100% zoom—inspect closely!
+  </Tab>
+</Tabs>
+
+---
+
+## Colors
+
+**Controls**: Maximum number of colors in output (color quantization)
+
+
+
+### What Colors Does
+
+The Colors setting limits how many distinct colors appear in your vectorized output. The algorithm analyzes your image and reduces the palette to the specified number.
+
+<Note>
+  **This is color quantization**, similar to saving a GIF with limited colors. The AI intelligently picks the most representative colors.
+</Note>
+
+### Color Options
+
+<Tabs>
+  <Tab title="2-4 Colors">
+    **Best for**:
+    - Two-tone logos
+    - Simple icons
+    - Minimal graphics
+    - Duotone effects
+
+    **Characteristics**:
+    - 📦 Smallest file sizes
+    - ✏️ Easiest to recolor
+    - 🎨 Major simplification
+    - ⚠️ Most colors merged
+
+    **Examples**:
+    - Black and white logo → 2 colors
+    - Twitter/Facebook style icon → 2-3 colors
+    - Flat two-tone badge → 4 colors
+
+    
+  </Tab>
+
+  <Tab title="8-16 Colors">
+    ⭐ **Logo preset default (16)**
+
+    **Best for**:
+    - Brand logos
+    - Simple illustrations
+    - App icons
+    - Clean graphics
+
+    **Characteristics**:
+    - 📦 Small file sizes
+    - ✏️ Easy to manage
+    - 🎨 Preserves main colors
+    - ⚡ Good balance
+
+    **Examples**:
+    - Company logo with 3-5 brand colors → 16
+    - App icon with gradient → 16
+    - Simple flat illustration → 8-16
+
+    **Why 16 is popular**: Enough for most logos, easy to recolor in Figma
+
+    
+  </Tab>
+
+  <Tab title="32-64 Colors">
+    ⭐ **Illustration preset default (32)**
+
+    **Best for**:
+    - Complex illustrations
+    - Multi-color graphics
+    - Detailed UI elements
+    - Rich artwork
+
+    **Characteristics**:
+    - 📦 Medium file sizes
+    - 🎨 Rich color palette
+    - ✏️ Still manageable
+    - 🎯 Recommended for most images
+
+    **Examples**:
+    - Flat illustration with many colors → 32
+    - Infographic → 32-64
+    - Colorful pattern → 64
+
+    **Sweet spot**: 32 colors handles most illustrations beautifully
+
+    
+  </Tab>
+
+  <Tab title="256 Colors">
+    **Best for**:
+    - Photo-realistic images
+    - Complex artwork
+    - Gradient-heavy graphics
+    - Maximum color accuracy
+
+    **Characteristics**:
+    - 📦 Large file sizes
+    - 🎨 Full color spectrum
+    - ✏️ Hard to manually recolor
+    - 🐢 Slower processing
+
+    **Examples**:
+    - Photo converted to vector → 256
+    - Artwork with gradients → 256
+    - Complex digital painting → 256
+
+    **Trade-off**: More colors = more accurate but harder to edit
+
+    
+  </Tab>
+
+  <Tab title="Unlimited (0)">
+    **Best for**:
+    - Preserving original palette exactly
+    - Special cases only
+    - Testing purposes
+
+    **Characteristics**:
+    - 📦 Largest file sizes
+    - 🎨 Every color preserved
+    - ✏️ Very complex
+    - ⚠️ May create hundreds of colors
+
+    **When to use**:
+    - Original has specific color requirements
+    - Testing to see full palette
+    - Then manually reduce afterwards
+
+    <Warning>
+      **Rarely needed**: Usually better to use 256 colors. Unlimited can create 500+ color swatches, making editing nearly impossible.
+    </Warning>
+  </Tab>
+</Tabs>
+
+### Color Selection Guide
+
+<table>
+  <thead>
+    <tr>
+      <th>Image Type</th>
+      <th>Recommended Colors</th>
+      <th>Why</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Simple logo</td>
+      <td>4-16</td>
+      <td>Logos use brand colors, limited palette</td>
+    </tr>
+    <tr>
+      <td>App icon</td>
+      <td>8-16</td>
+      <td>Clean, recognizable at small sizes</td>
+    </tr>
+    <tr>
+      <td>Flat illustration</td>
+      <td>32</td>
+      <td>Rich enough for variety, manageable</td>
+    </tr>
+    <tr>
+      <td>Complex illustration</td>
+      <td>64-256</td>
+      <td>Preserves subtle color variations</td>
+    </tr>
+    <tr>
+      <td>Photo/realistic</td>
+      <td>256</td>
+      <td>Maximum fidelity for gradients</td>
+    </tr>
+    <tr>
+      <td>Gradient-heavy</td>
+      <td>256</td>
+      <td>Smooth color transitions</td>
+    </tr>
+  </tbody>
+</table>
+
+### When to Adjust Colors
+
+<AccordionGroup>
+  <Accordion title="Increase Colors when..." icon="arrow-up">
+    **Symptoms**:
+    - Colors look posterized/banded
+    - Gradients have visible steps
+    - Subtle color variations lost
+    - Output looks too simplified
+
+    **Solution**:
+    1. Increase Colors setting (try 64 or 256)
+    2. Preview to compare
+    3. Stop when colors look accurate
+
+    **Example**: Illustration with subtle shading → increase from 32 to 64
+  </Accordion>
+
+  <Accordion title="Decrease Colors when..." icon="arrow-down">
+    **Symptoms**:
+    - Too many color swatches to manage
+    - Want simpler palette
+    - File size too large
+    - Need to recolor easily in Figma
+
+    **Solution**:
+    1. Decrease Colors setting (try 16 or 8)
+    2. Preview to verify main colors preserved
+    3. Accept some color merging
+
+    **Example**: Logo with brand colors → use 16 to simplify palette
+  </Accordion>
+</AccordionGroup>
+
+### Color Tips
+
+<Tabs>
+  <Tab title="🎨 Fewer Colors = Easier Editing">
+    **Post-conversion benefits**:
+
+    | Colors | Editing Complexity |
+    |--------|-------------------|
+    | 2-8 | ⭐⭐⭐⭐⭐ Very easy |
+    | 16-32 | ⭐⭐⭐⭐ Easy |
+    | 64 | ⭐⭐⭐ Moderate |
+    | 256 | ⭐⭐ Difficult |
+    | Unlimited | ⭐ Nearly impossible |
+
+    **If you plan to recolor**: Use fewer colors!
+  </Tab>
+
+  <Tab title="🔄 Can Always Simplify Later">
+    **Workflow tip**:
+
+    1. Convert with **higher** colors first (e.g., 64)
+    2. See what colors are actually used
+    3. If too many, reconvert with lower setting
+    4. Preview is cheap (2 credits)!
+
+    It's easier to reduce than add back.
+  </Tab>
+
+  <Tab title="📊 Check Actual Color Count">
+    **After converting**:
+
+    1. Select your SVG in Figma
+    2. Check the color swatches in the fill panel
+    3. Count how many unique colors
+    4. If way less than your setting, you can reduce
+
+    **Example**: Set to 64 colors, but only 20 used → reconvert with 32
+  </Tab>
+</Tabs>
+
+---
+
+## Draw Style
+
+**Controls**: How shapes are rendered (fills vs strokes)
+
+
+
+### What Draw Style Does
+
+Draw Style fundamentally changes how your vector is constructed. This is a **visual style choice**, not a quality setting.
+
+<Tabs>
+  <Tab title="Fill Shapes">
+    **Default for 90% of cases**
+
+    **How it works**:
+    - Closed shapes filled with solid colors
+    - Like "coloring inside the lines"
+    - Standard vector illustration style
+
+    **Best for**:
+    - ✅ Logos
+    - ✅ Icons
+    - ✅ Flat illustrations
+    - ✅ General graphics
+    - ✅ Most use cases
+
+    **Advantages**:
+    - Colors are accurate
+    - Easy to recolor (just change fill)
+    - Familiar editing style
+    - Works like Figma shapes
+
+    **Output example**:
+    ```
+    <path fill="#FF5733" d="..."/>
+    <path fill="#3498DB" d="..."/>
+    ```
+
+    
+  </Tab>
+
+  <Tab title="Stroke Shapes">
+    **Line Art preset default**
+
+    **How it works**:
+    - Paths with stroke weight
+    - Like "drawing with a pen"
+    - Outlines, not fills
+
+    **Best for**:
+    - ✅ Hand-drawn sketches
+    - ✅ Line art / ink drawings
+    - ✅ Technical drawings
+    - ✅ Coloring book pages
+    - ✅ When you'll add colors later
+
+    **Advantages**:
+    - Preserves "hand-drawn" feel
+    - Can adjust stroke width after
+    - Perfect for outlines
+    - Great for further illustration
+
+    **Output example**:
+    ```
+    <path stroke="#000000" stroke-width="2" fill="none" d="..."/>
+    ```
+
+    
+
+    <Tip>
+      **After converting**: Select all paths and change Stroke weight in Figma to make lines thicker/thinner!
+    </Tip>
+  </Tab>
+
+  <Tab title="Stroke Edges">
+    **Specialized effect**
+
+    **How it works**:
+    - Only color boundaries are stroked
+    - Creates outline effect
+    - Very minimal style
+
+    **Best for**:
+    - ⚠️ Special artistic effects
+    - ⚠️ Outline-only graphics
+    - ⚠️ Experimental styles
+
+    **Characteristics**:
+    - Very simple output
+    - Smallest file sizes
+    - No fills, only outlines
+    - Unique look
+
+    **When to use**:
+    - Creating wireframe version
+    - Artistic outline effect
+    - Minimal graphic style
+
+    <Warning>
+      **Rarely used**: Most users stick with Fill or Stroke. Edges is for specific artistic needs only.
+    </Warning>
+
+    
+  </Tab>
+</Tabs>
+
+### Fill vs Stroke Comparison
+
+<table>
+  <thead>
+    <tr>
+      <th>Aspect</th>
+      <th>Fill Shapes</th>
+      <th>Stroke Shapes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Use Case</strong></td>
+      <td>90% of graphics</td>
+      <td>Line art, sketches</td>
+    </tr>
+    <tr>
+      <td><strong>Appearance</strong></td>
+      <td>Solid colored shapes</td>
+      <td>Outlined paths</td>
+    </tr>
+    <tr>
+      <td><strong>Editing</strong></td>
+      <td>Change fill colors</td>
+      <td>Change stroke weight/color</td>
+    </tr>
+    <tr>
+      <td><strong>File Size</strong></td>
+      <td>Medium</td>
+      <td>Small-Medium</td>
+    </tr>
+    <tr>
+      <td><strong>Recoloring</strong></td>
+      <td>Very easy</td>
+      <td>Easy (stroke color)</td>
+    </tr>
+    <tr>
+      <td><strong>Examples</strong></td>
+      <td>Logos, icons, illustrations</td>
+      <td>Sketches, line drawings</td>
+    </tr>
+  </tbody>
+</table>
+
+### When to Use Each Style
+
+<AccordionGroup>
+  <Accordion title="Use Fill Shapes when..." icon="fill">
+    - Converting logos, icons, or illustrations
+    - Original has solid colors
+    - You want standard vector graphics
+    - Need to recolor easily
+    - **Default choice for 90% of images**
+  </Accordion>
+
+  <Accordion title="Use Stroke Shapes when..." icon="pen-nib">
+    - Converting hand-drawn sketches
+    - Original is mostly lines/outlines
+    - Creating coloring pages
+    - You'll add colors manually later
+    - Want adjustable line thickness
+  </Accordion>
+
+  <Accordion title="Use Stroke Edges when..." icon="border-outer">
+    - Creating outline/wireframe version
+    - Special artistic effect needed
+    - Experimental graphics
+    - **Very rare use case**
+  </Accordion>
+</AccordionGroup>
+
+### Draw Style Tips
+
+<Tip>
+  **Can't decide?** Use **Fill Shapes** (default). You can always convert strokes to outlines in Figma later if needed (Right-click → Outline Stroke).
+</Tip>
+
+---
+
+## Fill Gaps
+
+**Controls**: Fixes white-line rendering bugs
+
+
+
+### What Fill Gaps Does
+
+Fill Gaps solves a **technical rendering problem** where thin white lines appear between shapes at certain zoom levels. This is a browser/renderer limitation, not a design flaw.
+
+<CardGroup cols={2}>
+  <Card title="Problem" icon="bug" color="#EF4444">
+    **Without Fill Gaps**:
+
+    - Tiny gaps between shapes
+    - Visible at certain zoom levels
+    - Especially on web/mobile
+    - Looks unprofessional
+  </Card>
+
+  <Card title="Solution" icon="check-circle" color="#16A34A">
+    **With Fill Gaps**:
+
+    - Micro-overlaps at edges
+    - Gaps eliminated
+    - Smooth rendering
+    - Professional quality
+  </Card>
+</CardGroup>
+
+### How Fill Gaps Works
+
+**Technical**: Adds tiny overlaps (0.5-5px) between adjacent shapes
+
+**Visual impact**: None when viewed normally, but eliminates rendering gaps
+
+**When you'll notice the problem**:
+- Web browsers at non-100% zoom
+- Mobile devices (different pixel densities)
+- Exported SVGs on websites
+- PDFs at certain zoom levels
+
+### Fill Gaps Settings
+
+<Tabs>
+  <Tab title="Enabled (Recommended)">
+    ⭐ **Default for Logo, Illustration, High-Fidelity presets**
+
+    **When to enable**:
+    - ✅ Graphics for web use
+    - ✅ App icons and UI
+    - ✅ Logos for websites
+    - ✅ Any SVG exported for digital use
+    - ✅ **Almost always!**
+
+    **Benefits**:
+    - No white line artifacts
+    - Smooth rendering everywhere
+    - Professional appearance
+    - No downside for digital use
+
+    **Stroke Width**: Default 2.0px works great for most images
+  </Tab>
+
+  <Tab title="Disabled">
+    **Default for Line Art preset only**
+
+    **When to disable**:
+    - Line art/sketches (gaps are intentional)
+    - Technical drawings (precision required)
+    - Print-only graphics (rendering bug rare in print)
+
+    **Why Line Art disables it**:
+    - Strokes already overlap naturally
+    - Gaps between lines are intentional
+    - Fill gaps would merge separate lines
+
+    **Rare use case**: Most users keep it enabled
+  </Tab>
+</Tabs>
+
+### Stroke Width (Advanced)
+
+**Only available when Fill Gaps is enabled**
+
+Controls how much overlap is added at shape boundaries.
+
+| Stroke Width | Use Case |
+|--------------|----------|
+| **0.5-1.0px** | Subtle overlap, minimal effect |
+| **2.0px** ⭐ | Default, works for 95% of images |
+| **3.0-5.0px** | Aggressive overlap, for problem images |
+
+<Tip>
+  **Default (2.0px) works great for almost everyone**. Only adjust if you still see white lines after converting.
+</Tip>
+
+### Before/After Comparison
+
+<Tabs>
+  <Tab title="Fill Gaps Disabled">
+    
+
+    **What you see**:
+    - Thin white lines at shape boundaries
+    - More visible when zoomed
+    - Especially on web browsers
+    - Looks unfinished
+
+    **When this happens**:
+    - Non-retina displays
+    - Browser zoom not at 100%
+    - Mobile devices
+    - PDF viewers
+  </Tab>
+
+  <Tab title="Fill Gaps Enabled">
+    
+
+    **What you see**:
+    - Smooth, professional appearance
+    - No visible gaps
+    - Clean at any zoom
+    - Production-ready
+
+    **How it works**:
+    - Tiny overlaps invisible to eye
+    - Eliminates renderer gaps
+    - No quality loss
+    - Zero downside
+  </Tab>
+</Tabs>
+
+### Fill Gaps Tips
+
+<AccordionGroup>
+  <Accordion title="Keep it enabled for 95% of cases" icon="check">
+    **Recommended default**: Enable Fill Gaps for almost everything
+
+    **Exceptions**:
+    - Line Art (already disabled in preset)
+    - Technical drawings requiring precision
+    - Print-only graphics
+
+    **If unsure**: Enable it! There's virtually no downside.
+  </Accordion>
+
+  <Accordion title="Adjust Stroke Width if still seeing gaps" icon="sliders">
+    **If white lines persist** after enabling:
+
+    1. Increase **Stroke Width** to 3.0 or 4.0
+    2. Preview again
+    3. Check at different zoom levels
+    4. Most stubborn gaps fixed by 4-5px
+
+    **Rarely needed**: Default 2.0px works 95% of time
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Settings Quick Reference
+
+<table>
+  <thead>
+    <tr>
+      <th>Setting</th>
+      <th>What It Does</th>
+      <th>Recommended Start</th>
+      <th>Adjust When...</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Quality</strong></td>
+      <td>Curve precision</td>
+      <td>Standard</td>
+      <td>Edges look jagged → High</td>
+    </tr>
+    <tr>
+      <td><strong>Detail</strong></td>
+      <td>Noise filtering</td>
+      <td>50 (Illustration)</td>
+      <td>Too noisy → 30 | Lost features → 70</td>
+    </tr>
+    <tr>
+      <td><strong>Colors</strong></td>
+      <td>Color palette size</td>
+      <td>32 (Illustration)</td>
+      <td>Colors wrong → 64 or 256</td>
+    </tr>
+    <tr>
+      <td><strong>Draw Style</strong></td>
+      <td>Fill vs Stroke</td>
+      <td>Fill Shapes</td>
+      <td>Line art → Stroke Shapes</td>
+    </tr>
+    <tr>
+      <td><strong>Fill Gaps</strong></td>
+      <td>Fix white lines</td>
+      <td>Enabled</td>
+      <td>Print only → Disable</td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+## Next Steps
+
+<CardGroup cols={3}>
+  <Card
+    title="Advanced Features"
+    icon="wand-sparkles"
+    href="/user-guide/advanced-features"
+  >
+    Custom palettes, stroke width, and power tips
+  </Card>
+
+  <Card
+    title="Best Practices"
+    icon="star"
+    href="/user-guide/best-practices"
+  >
+    Real-world workflows for different scenarios
+  </Card>
+
+  <Card
+    title="Troubleshooting"
+    icon="wrench"
+    href="/support/troubleshooting"
+  >
+    Fix quality issues and optimize results
+  </Card>
+</CardGroup>

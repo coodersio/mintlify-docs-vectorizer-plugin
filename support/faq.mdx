@@ -1,0 +1,604 @@
+---
+title: Frequently Asked Questions
+description: Common questions about Vectorized (AI Vectorizer) - Image Tracer. Find quick answers to usage, pricing, technical, and troubleshooting questions.
+keywords: figma vectorizer faq, vectorizer questions, figma plugin help, vectorizer troubleshooting
+---
+
+## General Questions
+
+<AccordionGroup>
+  <Accordion title="What is Vectorized (AI Vectorizer) - Image Tracer?" icon="circle-question">
+    Vectorized (AI Vectorizer) - Image Tracer is a Figma plugin that converts bitmap images (PNG, JPG) into editable SVG vectors using AI-powered technology from Vectorizer.ai.
+
+    **Key features**:
+    - 🎨 4 smart presets (Logo, Illustration, Line Art, High-Fidelity)
+    - 👁️ HD Preview before converting (only 2 credits)
+    - 🎛️ Professional controls (Quality, Detail, Colors, Style)
+    - ⚡ Processes in 5-60 seconds
+    - ✏️ Results are fully editable in Figma
+
+    [Learn more →](/)
+  </Accordion>
+
+  <Accordion title="How is this different from Vectorizer.ai website?" icon="arrows-left-right">
+    **Vectorized plugin**:
+    - ✓ Works directly in Figma (no file uploads)
+    - ✓ Pay-per-use (no subscription)
+    - ✓ SVG automatically placed in canvas
+    - ✓ Instant editing after conversion
+
+    **Vectorizer.ai website**:
+    - Requires leaving Figma
+    - $9.99/month subscription (100 conversions)
+    - Manual download and import
+    - Separate workflow
+
+    **Both use the same AI engine**, but our plugin offers Figma-native convenience!
+  </Accordion>
+
+  <Accordion title="Do I need a Vectorizer.ai account?" icon="user">
+    **No separate account needed!**
+
+    - Plugin works with your existing Figma account
+    - Credits tied to your Figma User ID
+    - No additional sign-up required
+    - Purchase credits directly in the plugin
+
+    Your Figma account is all you need.
+  </Accordion>
+
+  <Accordion title="Is there a free trial?" icon="gift">
+    **No free credits currently**, but we offer:
+
+    - **Starter Pack**: $4 for 100 credits (~10 conversions)
+    - **HD Preview**: Only 2 credits to test before converting
+    - **No subscription**: Pay once, use for 6 months
+
+    **Why no free trial**:
+    - Vectorizer.ai API charges us per conversion
+    - Free tier would be unsustainable
+    - $4 starter pack is our "trial" offer
+
+    **Pro tip**: Use HD Preview (2 credits) to test multiple images cheaply!
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Usage Questions
+
+<AccordionGroup>
+  <Accordion title="Which preset should I use?" icon="sliders">
+    **Quick decision guide**:
+
+    | Image Type | Recommended Preset |
+    |------------|-------------------|
+    | Company logo, app icon | **Logo** |
+    | Flat illustration, UI graphic | **Illustration** ⭐ |
+    | Hand sketch, line drawing | **Line Art** |
+    | Complex art, photo | **High-Fidelity** |
+    | **Not sure?** | **Illustration** |
+
+    ⭐ **Illustration preset** works great for 90% of images. Start there!
+
+    [Deep dive into presets →](/user-guide/understanding-presets)
+  </Accordion>
+
+  <Accordion title="Why does my conversion look different from the preview?" icon="not-equal">
+    **Small differences are normal** due to:
+
+    1. **Preview is PNG** (rasterized representation)
+    2. **Final is SVG** (true vector with precise math)
+    3. **Rendering differences** between web and Figma
+
+    **Usually differences are minor (less than 5%)** and expected.
+
+    **If drastically different**:
+    - Check if you changed settings after preview
+    - Make sure you clicked "Convert" (not "Preview" again)
+    - Try converting again with same settings
+    - [Contact support](/support/troubleshooting) if consistently wrong
+  </Accordion>
+
+  <Accordion title="Can I vectorize text?" icon="font">
+    **Not recommended!**
+
+    **Why**:
+    - Text in Figma is already vector (scalable)
+    - Vectorizing converts to shapes (loses editability)
+    - Can't change font or text content after
+
+    **Better approach**:
+    1. Use Figma's text tool directly
+    2. If you need outlined text: Select text → Type → "Outline Stroke" (`Shift + Cmd/Ctrl + O`)
+
+    **Only vectorize text** if it's part of a logo/image you're converting.
+  </Accordion>
+
+  <Accordion title="What's the maximum image size I can convert?" icon="expand">
+    **Technical limits**:
+    - **Max file size**: 50 MB
+    - **Max dimensions**: 10,000 × 10,000 pixels
+    - **Recommended**: Under 5,000 × 5,000 for best results
+
+    **Larger images**:
+    - Take longer to process
+    - May produce larger SVG files
+    - Could timeout (>2 minutes)
+
+    **Best practice**:
+    - Resize huge images to 3,000-4,000px max dimension
+    - Quality won't improve past certain size
+    - Smaller = faster processing
+  </Accordion>
+
+  <Accordion title="Can I batch convert multiple images?" icon="layer-group">
+    **Not currently supported.**
+
+    **Current workflow** (one at a time):
+    1. Select first image
+    2. Convert
+    3. Select next image
+    4. Repeat
+
+    **Workaround**: Use Quick Actions (`Cmd/Ctrl + /`) to launch the plugin quickly for each image.
+  </Accordion>
+
+  <Accordion title="Does it work with vector images (SVG)?" icon="shapes">
+    **No, only raster/bitmap images.**
+
+    **Supported formats**:
+    - ✓ PNG
+    - ✓ JPG/JPEG
+    - ✓ Any Figma node with image fill
+
+    **Not supported**:
+    - ❌ Existing SVG (already vector!)
+    - ❌ PDF
+    - ❌ GIF
+    - ❌ Video
+    - ❌ Figma vector shapes
+
+    **Why**: SVG is already vector format—no conversion needed!
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Pricing & Credits
+
+<AccordionGroup>
+  <Accordion title="How much does it cost?" icon="dollar-sign">
+    **Credit-based pricing**:
+
+    | Action | Credits | USD (Starter) | USD (Pro) |
+    |--------|---------|---------------|-----------|
+    | HD Preview | 2 | $0.08 | $0.04 |
+    | Full Conversion | 10 | $0.40 | $0.20 |
+
+    **Packages**:
+    - **Starter**: $4 for 100 credits (~10 conversions)
+    - **Pro**: $8 for 400 credits (~40 conversions, 50% savings!)
+
+    [View full pricing →](/support/credits-pricing)
+  </Accordion>
+
+  <Accordion title="Do credits expire?" icon="clock">
+    **Yes, after 6 months** from purchase date.
+
+    **How it works**:
+    - Buy on Jan 1 → Expires Jul 1
+    - Warnings at 7 days and 3 days before
+    - After expiration: Credits unavailable
+
+    **Reset expiration**:
+    - Buying new credits resets expiration date for ALL credits
+    - No credits wasted if you buy before they expire!
+
+    [Learn more →](/support/credits-pricing#credit-expiration)
+  </Accordion>
+
+  <Accordion title="Can I get a refund?" icon="rotate-left">
+    **Generally no, but exceptions for technical issues.**
+
+    **Refund policy**:
+    - ❌ No refunds for unused credits (like gift cards)
+    - ✅ Refunds for technical problems we can't fix
+    - ✅ Credits refunded if conversion fails due to error
+
+    **Why no refunds**:
+    - Credits instantly usable
+    - API costs incurred immediately
+    - Digital goods policy
+
+    **Recommendation**:
+    - Start with Starter Pack ($4) to test
+    - Use HD Preview (2 credits) before converting
+    - Contact support if issues occur
+
+    [More details →](/support/credits-pricing)
+  </Accordion>
+
+  <Accordion title="What if conversion fails—do I lose credits?" icon="triangle-exclamation">
+    **No! Credits are auto-refunded if conversion fails.**
+
+    **How it works**:
+    1. You click "Convert to SVG" (10 credits deducted)
+    2. Processing starts
+    3. **If it fails** due to error:
+       - Credits automatically refunded within 1 minute
+       - Error message explains what went wrong
+       - No credits lost!
+
+    **Manual refunds** (rare cases):
+    - If auto-refund doesn't work, contact support
+    - Include timestamp and screenshot
+    - We'll manually refund within 24 hours
+
+    **User errors** (credits NOT refunded):
+    - Wrong settings chosen
+    - Unsatisfied with result
+    - Changed mind after converting
+
+    → Use HD Preview to avoid this!
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Technical Questions
+
+<AccordionGroup>
+  <Accordion title="Why isn't my image showing in the plugin?" icon="image-slash">
+    **Common causes and solutions**:
+
+    **1. Selected node doesn't have image fill**
+    - Make sure you selected a node with actual image content
+    - Check fill panel—should show "Image" fill type
+
+    **2. Image not fully loaded**
+    - Wait for image to load in Figma first
+    - Large images may take time
+
+    **3. Unsupported format**
+    - Only PNG/JPG supported
+    - Not SVG, PDF, or video
+
+    **4. Hidden or locked layer**
+    - Unlock layer
+    - Make visible
+
+    **Quick fix**:
+    1. Copy image
+    2. Create rectangle (`R`)
+    3. Paste as fill (`Cmd/Ctrl + V`)
+    4. Select rectangle
+    5. Try plugin again
+
+    [Full troubleshooting →](/support/troubleshooting)
+  </Accordion>
+
+  <Accordion title="Plugin won't load or shows blank screen" icon="spinner">
+    **Troubleshooting steps**:
+
+    **1. Check internet connection**
+    - Plugin requires online access
+    - Try loading a website to verify
+
+    **2. Disable VPN/proxy**
+    - Some VPNs block plugin connections
+    - Disable temporarily and retry
+
+    **3. Update Figma**
+    - Make sure you're on latest version
+    - Desktop: Help → Check for Updates
+    - Browser: Refresh page (`Cmd/Ctrl + R`)
+
+    **4. Clear cache (Browser version)**
+    - Clear browser cache and cookies
+    - Reload Figma
+
+    **5. Restart Figma (Desktop version)**
+    - Completely quit Figma
+    - Reopen and try again
+
+    **Still not working?** [Contact support](/support/troubleshooting)
+  </Accordion>
+
+  <Accordion title="Conversion is taking too long (>2 minutes)" icon="hourglass">
+    **Normal processing times**:
+
+    | Preset | Expected Time |
+    |--------|---------------|
+    | Logo | 5-10 seconds |
+    | Illustration | 10-20 seconds |
+    | Line Art | 15-25 seconds |
+    | High-Fidelity | 30-90 seconds |
+
+    **If longer than 2 minutes**:
+
+    **Possible causes**:
+    - Very large/complex image
+    - Slow internet connection
+    - Server congestion (rare)
+
+    **Solutions**:
+    1. **Wait**: High-Fidelity can take up to 90 seconds
+    2. **Check internet**: Slow connection = slow processing
+    3. **Reduce complexity**:
+       - Lower Quality to Standard
+       - Decrease Detail setting
+       - Use smaller image
+    4. **Avoid High-Fidelity** for testing
+
+    **If stuck for 3+ minutes**: Refresh plugin and try again. Contact support if persists.
+  </Accordion>
+
+  <Accordion title="Result has too many dots/noise" icon="circle-dot">
+    **This is a Detail setting issue.**
+
+    **Problem**: Detail set too high → preserves JPG artifacts and noise
+
+    **Solution**:
+    1. **Lower Detail** slider (move left toward "Less")
+    2. Try Detail value of **30-40**
+    3. Use HD Preview (2 credits) to test
+    4. Adjust until clean
+
+    **Why it happens**:
+    - JPG compression creates noise
+    - Scanned images have paper texture
+    - Screenshots have artifacts
+
+    **Preset recommendations**:
+    - Logo preset (Detail 30) - Aggressive noise removal
+    - Illustration (Detail 50) - Balanced
+    - Reduce manually if needed
+
+    [Learn about Detail →](/user-guide/core-settings)
+  </Accordion>
+
+  <Accordion title="Colors are wrong or limited" icon="palette">
+    **This is a Colors setting issue.**
+
+    **Problem**: Colors setting too low → color quantization
+
+    **Solution**:
+    1. **Increase Colors** from dropdown
+    2. Try **64** or **256** colors
+    3. Or select **Unlimited** (0)
+    4. Preview and compare
+
+    **Why it happens**:
+    - Preset has color limit (e.g., Logo = 16 colors)
+    - Algorithm reduces colors for simplification
+    - Good for simple graphics, bad for complex ones
+
+    **When to limit colors**:
+    - ✓ Simple logos (8-16 colors)
+    - ✓ Icons (4-8 colors)
+    - ✓ Clean illustrations (16-32)
+
+    **When to increase**:
+    - Complex illustrations (64-256)
+    - Photos (256 or Unlimited)
+    - Gradients (256 or Unlimited)
+
+    [Learn about Colors →](/user-guide/core-settings)
+  </Accordion>
+
+  <Accordion title="Edges look jagged/blocky" icon="stairs">
+    **This is a Quality setting issue.**
+
+    **Problem**: Quality set too low → rough curves
+
+    **Solution**:
+    1. **Increase Quality** slider
+    2. Try **High** or **Ultra**
+    3. Preview to see improvement
+    4. Convert when satisfied
+
+    **Why it happens**:
+    - Draft/Standard quality uses looser curve fitting
+    - Faster processing, less precision
+    - Noticeable when zoomed in
+
+    **Quality guide**:
+    - **Draft**: Quick tests only
+    - **Standard**: Daily use (good enough for most)
+    - **High**: Print, large displays
+    - **Ultra**: Maximum precision
+
+    **Trade-off**: Higher quality = larger files + slower processing
+
+    [Learn about Quality →](/user-guide/core-settings)
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Results & Editing
+
+<AccordionGroup>
+  <Accordion title="How do I edit the SVG after converting?" icon="pen-to-square">
+    **Your SVG is a native Figma vector!** Use all normal Figma tools:
+
+    **Change colors**:
+    1. Double-click SVG to enter group
+    2. Select individual shapes
+    3. Change fill colors in right panel
+
+    **Edit paths**:
+    1. Double-click shape to enter vector edit mode
+    2. Drag anchor points
+    3. Adjust bezier handles
+    4. Add/delete points
+
+    **Modify structure**:
+    - Boolean operations (Union, Subtract, Intersect)
+    - Flatten overlapping shapes
+    - Simplify complex paths
+    - Create components
+
+    [Full editing guide →](/getting-started/quick-start#step-5-edit-your-vector-in-figma)
+  </Accordion>
+
+  <Accordion title="Can I re-convert an image with different settings?" icon="arrows-rotate">
+    **Yes! Convert as many times as you want.**
+
+    **Workflow**:
+    1. Select original image again
+    2. Adjust settings (try different preset or parameters)
+    3. Preview (2 credits) or Convert (10 credits)
+    4. Compare results
+    5. Keep the best one
+
+    **Cost**: Each conversion costs credits (10 per SVG, 2 per preview)
+
+    **Tip**: Use cheap previews (2 credits) to test multiple settings before final conversion!
+  </Accordion>
+
+  <Accordion title="File size is too large—how do I reduce it?" icon="file">
+    **Multiple strategies**:
+
+    **1. Adjust settings before converting**:
+    - Lower **Quality** (Standard instead of Ultra)
+    - Reduce **Detail** (fewer small shapes)
+    - Limit **Colors** (16-32 instead of 256)
+    - Avoid **High-Fidelity** preset
+
+    **2. Simplify after converting**:
+    - Select SVG paths
+    - Right-click → **Simplify**
+    - Reduces anchor points
+    - Smaller file, slightly less accurate
+
+    **3. Flatten shapes**:
+    - Select SVG
+    - Right-click → **Flatten** (`Cmd/Ctrl + E`)
+    - Merges overlapping paths
+    - Can reduce complexity
+
+    **4. Use different preset**:
+    - Logo preset: Smallest files (5-50 KB)
+    - Illustration: Medium (50-200 KB)
+    - High-Fidelity: Largest (500 KB-2 MB)
+
+    [Optimization guide →](/user-guide/best-practices)
+  </Accordion>
+
+  <Accordion title="How do I export the SVG for use on web?" icon="code">
+    **Multiple export methods**:
+
+    **Method 1: Copy SVG code**
+    1. Select your converted SVG
+    2. Right-click → Copy/Paste → **Copy as SVG**
+    3. Paste into code editor
+    4. Use in HTML/CSS
+
+    **Method 2: Export as file**
+    1. Select SVG
+    2. Open Export panel (bottom right)
+    3. Add export: **SVG**
+    4. Click **Export**
+    5. Save file
+
+    **Method 3: Dev Mode (Figma)**
+    - Enable Dev Mode
+    - Select SVG
+    - Copy code from Inspect panel
+
+    **Tip**: Figma's SVG export is optimized and clean—works great for web!
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Account & Security
+
+<AccordionGroup>
+  <Accordion title="Is my design data safe?" icon="shield-check">
+    **Absolutely. We take privacy seriously.**
+
+    **What we DON'T do**:
+    - ❌ Store your design files
+    - ❌ Keep images after processing
+    - ❌ Use your data for AI training
+    - ❌ Share with third parties
+    - ❌ Sell your data
+
+    **What we DO**:
+    - ✓ Send image to Vectorizer.ai API (secure HTTPS)
+    - ✓ Process immediately
+    - ✓ Delete within seconds after conversion
+    - ✓ Store only: User ID + credit balance
+
+    **Data retention**:
+    - Images: Deleted immediately after conversion
+    - User info: Figma ID + name (for credits)
+    - No design files stored
+
+    [Read full Privacy Policy →](/legal/privacy-policy)
+  </Accordion>
+
+  <Accordion title="Do you use my images to train AI?" icon="robot">
+    **No, never.**
+
+    - We use Vectorizer.ai's API (they also don't train on user data)
+    - Your images are processed and immediately deleted
+    - No data retention for ML/AI purposes
+    - Guaranteed in our Privacy Policy
+
+    **Vectorizer.ai's policy** (from their site):
+    - No training on user uploads
+    - Images deleted after processing
+    - Privacy-first approach
+
+    You own your designs 100%.
+  </Accordion>
+
+  <Accordion title="Can others see my conversions?" icon="eye-slash">
+    **No. Everything is private to your account.**
+
+    - Only you can see your converted SVGs
+    - Credit balance is private
+    - Conversion history not stored
+    - No social/sharing features
+
+    **Team accounts**: If multiple people use same Figma account, they share credits and can see each other's work (normal Figma behavior).
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Still Have Questions?
+
+<CardGroup cols={3}>
+  <Card
+    title="Troubleshooting"
+    icon="wrench"
+    href="/support/troubleshooting"
+  >
+    Detailed solutions for technical issues
+  </Card>
+
+  <Card
+    title="Quick Start Guide"
+    icon="rocket"
+    href="/getting-started/quick-start"
+  >
+    Step-by-step tutorial for first conversion
+  </Card>
+
+  <Card
+    title="Contact Support"
+    icon="life-ring"
+    href="mailto:zouwenqiang678@gmail.com"
+  >
+    Email us at zouwenqiang678@gmail.com
+  </Card>
+</CardGroup>
+
+<Note>
+  **Can't find your question?** Email us at **zouwenqiang678@gmail.com**
+</Note>
